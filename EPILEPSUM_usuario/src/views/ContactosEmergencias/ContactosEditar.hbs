@@ -1,0 +1,52 @@
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/css/ContactosEmergencia/contactosEditar.css">
+
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</div>
+
+<div id="contenedor">
+{{#each enlistar}}
+<form action="/contactos/editar/{{idcontactosEmergencia}}" method="POST">
+
+    <div id="Nombres">
+        <label>
+            Nombre:
+        </label>
+        <input type="text" name="nombre" id="nombre" value="{{nombre}}" required>
+    </div>
+        
+    <div id="Telefono">
+        <label>
+        Teléfono:
+        </label>
+        <input type="number" name="telefono" id="telefono" value="0{{telefono}}">
+    </div>
+    
+    <div id="Celular">
+        <label>
+        Celular:
+        </label>
+        <input type="number" name="celular" id="celular" value="0{{celular}}" required>
+    </div>
+    
+    <div id="boton">
+        <button type="submit" id="btn-agregar">
+            Guardar Cambios
+        </button>
+    </div>
+    {{/each}}
+        <div id="Familiar">
+            <label>
+                Familiar:
+            </label>
+            <select name="familiar" id="familiar" required>
+                {{#each familiar}}
+                <option value="{{this.idfamiliar}}">
+                    {{this.nombreFamiliar}}
+                </option>
+                {{/each}}
+            </select>
+        </div>
+    </form>
+</div>

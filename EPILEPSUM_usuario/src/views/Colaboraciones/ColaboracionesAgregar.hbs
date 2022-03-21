@@ -1,0 +1,25 @@
+<form action="/colaboracion/agregar/{{user.idusuario}}" method="POST">
+    <div>
+        <label>
+            Foto:
+        </label>
+        <input type="image" name="foto" id="foto" value="{{foto}}">
+    </div>
+    <div>
+        <label>
+            Nombre:
+        </label>
+        <input type="text" name="nombre" id="nombre" value="{{nombre}}">
+    </div>
+    <div>
+        <label>
+            Descripción:
+        </label>
+        <input type="text" name="descripcion" id="descripcion" value="{{descripcion}}">
+    </div>
+    <div>
+        <button type="submit" id="btn-agregar">
+            Agregar
+        </button>
+    </div>
+</form>
