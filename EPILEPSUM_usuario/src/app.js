@@ -8,15 +8,13 @@ const flash = require('connect-flash');
 const mysqlstore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const http = require('http');
-const socketIO = require('socket.io');  
+
 
 const {database} = require('./key');
 
 
 const app = express();
 require('./lib/passport');
-const server = http.Server(app);
-const io = socketIO(server);
 /// archivos compartidos
 app.set('port', process.env.PORT || 5000);
 app.set('views', path.join(__dirname, 'views'));
