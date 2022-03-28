@@ -1,6 +1,11 @@
+PARTE DE CLIENTE
 CRUD => medicamentos (proceso)
-CRUD => ataques epilepticos (proceso detro de control) 
-CRUD => medico
+
+CRUD => principio activo del medicamento
+CRUD => peso y estatura
+
+CRUD => ataques epilepticos (proceso detro de control),
+CRUD => medico / especialidades
 CRUD => Cita control
 CRUD => consejos
 CRUD => Experiencia
@@ -14,3 +19,19 @@ crear tabla => CHAT
 crear una tabla rol
 
 aumentar en el CRUD de colaboraciones la columna consejos
+
+chatbot
+
+validaciones de input
+
+PARTE ADMINISTRATIVA
+
+1. crear una tabla proyecto (pagina principal)
+2. CRUD => tabla de contenido de epilepsia(pagina principal)
+3. CRUD => efectos secundarios
+4. CRUD => tipo de epilepsia
+5. CRUD => sintomas
+6. CRUD => Experiencia
+7. CRUD => consejos
+8. CRUD => preguntas
+9. CRUD => respuestas
