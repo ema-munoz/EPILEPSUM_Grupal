@@ -1,8 +1,9 @@
+
 const express = require('express');
 
 const rutas = express.Router();
 
-const { login, verificacion } = require("../Controllers/index");
+const {login, verificacion} = require ("../Controllers/index");
 
 rutas.get("/", login);
 

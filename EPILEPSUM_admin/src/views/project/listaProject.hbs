@@ -1,0 +1,15 @@
+<form action="/project/lista/{{user.idusuario}}" method="get"></form>
+<div id="contenido">
+    {{#each listas}}
+    <div id="nombre">
+       <label >{{}}</label> 
+    </div>
+    {{/each}}
+    {{#each objetivos}}
+    <div id="objetivos">
+        <ul>
+            <li>{{objetivos}}</li>            
+        </ul>
+    </div>
+    {{/each}}
+</div>

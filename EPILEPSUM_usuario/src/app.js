@@ -54,9 +54,6 @@ app.use((req, res, next) => {
 });
 //varible globales 
 
-// sockets
-//require('./sockets')(io);
-
 //public
 app.use(express.static(path.join(__dirname, 'public')));
 //public

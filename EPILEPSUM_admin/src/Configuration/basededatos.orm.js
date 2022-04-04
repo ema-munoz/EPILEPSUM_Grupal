@@ -29,6 +29,8 @@ const detallesMedicamentosModels = require ('../Model/detallesMedicamentos')
 const detallesRolModels = require ('../Model/detallesRol')
 const experienciasModels = require ('../Model/experiencia')
 const rolModels = require ('../Model/rol')
+const projectModelo = require('../Model/project')
+const detalleProjectModelo = require('../Model/detalleProject')
 
 const sequelize = new Sequelize(
   'epilepsum', 
@@ -74,6 +76,8 @@ sequelize.authenticate()
   const detallesRol = detallesRolModels(sequelize, Sequelize)
   const experiencias = experienciasModels(sequelize, Sequelize)
   const rol = rolModels(sequelize, Sequelize)
+  const project = projectModelo(sequelize,Sequelize)
+  const detalleProject = detalleProjectModelo(sequelize,Sequelize)
 
   usuario.hasMany(contactosEmergencia)
   contactosEmergencia.belongsTo(usuario)
@@ -111,6 +115,12 @@ sequelize.authenticate()
   usuario.hasMany(citaControl)
   citaControl.belongsTo(usuario)
 
+  project.hasMany(detalleProject)
+  detalleProject.belongsTo(project)
+
+  usuario.hasMany(project)
+  project.belongsTo(usuario)
+
   module.exports = {
     usuario,
     medicacion,
@@ -126,5 +136,7 @@ sequelize.authenticate()
     detallesMedicamentos,
     detallesRol,
     experiencias,
-    rol
+    rol,
+    project,
+    detalleProject
   }

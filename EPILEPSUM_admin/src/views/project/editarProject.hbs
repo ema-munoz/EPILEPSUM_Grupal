@@ -1,0 +1,18 @@
+<form action="/project/editar/{{user.idusuario}}" method="post">
+    <div id="contenido">
+        {{#each listas}}
+        <div id="Nombre">
+            <label>Nombre Project:</label>
+            <input type="text" name="nombre" id="nombre" value="{{nombre}}">
+        </div>
+        {{/each}}
+        {{#each lista}}
+        <div id="objetivos">
+            <textarea name="objetivo">{{objetivo}}</textarea>
+        </div>        
+        {{/each}}
+        <div id="boton">
+            <button type="submit">Guardar</button>
+        </div>
+    </div>
+</form>
