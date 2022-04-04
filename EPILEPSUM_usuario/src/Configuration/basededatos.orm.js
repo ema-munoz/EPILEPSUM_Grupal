@@ -12,7 +12,7 @@ mysql.createConnection({
     connection.query(`CREATE DATABASE IF NOT EXISTS ${dbName};`).then((res) => {
         console.info("Base de datos creada o comprobada correctamente");
     })
-})
+})  
 
 const usuarioModels = require('../Model/user')
 const medicacionUsuarioModels = require('../Model/medicacion')

@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const exphbs = require('express-handlebars');
@@ -8,15 +8,12 @@ const flash = require('connect-flash');
 const mysqlstore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const http = require('http');
-const socketIO = require('socket.io');  
 
-const {database} = require('./key');
+const { database } = require('./key');
 
 
 const app = express();
 require('./lib/passport');
-const server = http.Server(app);
-const io = socketIO(server);
 /// archivos compartidos
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +22,7 @@ app.engine('.hbs', exphbs({
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs',
-    helpres: require('./lib/handlebars') 
+    helpres: require('./lib/handlebars')
 }));
 app.set('view engine', '.hbs');
 /// archivos compartidos
@@ -33,7 +30,7 @@ app.set('view engine', '.hbs');
 //midlewars
 app.use(morgan('dev'));
 
-app.use(bodyparser.urlencoded({extended:false}));
+app.use(bodyparser.urlencoded({ extended: false }));
 app.use(bodyparser.json());
 app.use(session({
     secret: 'EPILEPSUM',
@@ -56,14 +53,13 @@ app.use((req, res, next) => {
 });
 //varible globales 
 
-// sockets
-//require('./sockets')(io);
-
 //public
 app.use(express.static(path.join(__dirname, 'public')));
 //public
 
 //routas
-
+app.use(require("./routes/index"));
+app.use(require("./routes/registro"));
+app.use('/project', require('./routes/projectRutas'))
 
 module.exports = app;

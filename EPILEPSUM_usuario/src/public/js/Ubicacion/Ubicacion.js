@@ -29,8 +29,6 @@ class mapa {
 
 		const tile = L.tileLayer(tileURL2);
 
-		// Socket Io
-		const socket = io.connect();
 
 		// Geolocation
 		map.locate({
@@ -41,22 +39,8 @@ class mapa {
 			const newMarker = L.marker(coords);
 			newMarker.bindPopup('You are Here!');
 			map.addLayer(newMarker);
-			socket.emit('userCoordinates', e.latlng);
 		});
 
-		// socket new User connected
-		socket.on('newUserCoordinates', (coords) => {
-			console.log(coords);
-			const userIcon = L.icon({
-				iconUrl: '/img/Ubicacion/icon2.png',
-				iconSize: [38, 42],
-			})
-			const newUserMarker = L.marker([coords.lat, coords.lng], {
-				icon: userIcon
-			});
-			newUserMarker.bindPopup('New User!');
-			map.addLayer(newUserMarker);
-		});
 
 		map.addLayer(tile);
 	}

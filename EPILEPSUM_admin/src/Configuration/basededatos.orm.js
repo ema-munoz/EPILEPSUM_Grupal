@@ -33,6 +33,8 @@ const efectosSecundariosModels = require('../Model/efectosSecundarios')
 const sintomasModels = require('../Model/sintomas')
 const tipoEpilepsiaModels = require('../Model/tipoEpilepsia')
 
+const projectModelo = require('../Model/project')
+const detalleProjectModelo = require('../Model/detalleProject')
 
 const sequelize = new Sequelize(
   'epilepsum', 
@@ -78,6 +80,8 @@ sequelize.authenticate()
   const detallesRol = detallesRolModels(sequelize, Sequelize)
   const experiencias = experienciasModels(sequelize, Sequelize)
   const rol = rolModels(sequelize, Sequelize)
+  const project = projectModelo(sequelize,Sequelize)
+  const detalleProject = detalleProjectModelo(sequelize,Sequelize)
 
   const efectosSecundarios = efectosSecundariosModels(sequelize, Sequelize)
   const tipoEpilepsia = tipoEpilepsiaModels(sequelize, Sequelize)
@@ -129,6 +133,12 @@ sequelize.authenticate()
   usuario.hasMany(citaControl)
   citaControl.belongsTo(usuario)
 
+  project.hasMany(detalleProject)
+  detalleProject.belongsTo(project)
+
+  usuario.hasMany(project)
+  project.belongsTo(usuario)
+
   module.exports = {
     usuario,
     medicacion,
@@ -148,4 +158,6 @@ sequelize.authenticate()
     efectosSecundarios,
     tipoEpilepsia,
     sintomas,
+    project,
+    detalleProject
   }
