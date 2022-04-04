@@ -29,6 +29,10 @@ const detallesMedicamentosModels = require ('../Model/detallesMedicamentos')
 const detallesRolModels = require ('../Model/detallesRol')
 const experienciasModels = require ('../Model/experiencia')
 const rolModels = require ('../Model/rol')
+const efectosSecundariosModels = require('../Model/efectosSecundarios')
+const sintomasModels = require('../Model/sintomas')
+const tipoEpilepsiaModels = require('../Model/tipoEpilepsia')
+
 
 const sequelize = new Sequelize(
   'epilepsum', 
@@ -74,6 +78,20 @@ sequelize.authenticate()
   const detallesRol = detallesRolModels(sequelize, Sequelize)
   const experiencias = experienciasModels(sequelize, Sequelize)
   const rol = rolModels(sequelize, Sequelize)
+
+  const efectosSecundarios = efectosSecundariosModels(sequelize, Sequelize)
+  const tipoEpilepsia = tipoEpilepsiaModels(sequelize, Sequelize)
+  const  sintomas= sintomasModels(sequelize, Sequelize)
+
+  usuario.hasMany(efectosSecundarios)
+  efectosSecundarios.belongsTo(usuario)
+
+  usuario.hasMany(tipoEpilepsia)
+  tipoEpilepsia.belongsTo(usuario)
+
+  usuario.hasMany(sintomas)
+  sintomas.belongsTo(usuario)
+
 
   usuario.hasMany(contactosEmergencia)
   contactosEmergencia.belongsTo(usuario)
@@ -126,5 +144,8 @@ sequelize.authenticate()
     detallesMedicamentos,
     detallesRol,
     experiencias,
-    rol
+    rol,
+    efectosSecundarios,
+    tipoEpilepsia,
+    sintomas,
   }
