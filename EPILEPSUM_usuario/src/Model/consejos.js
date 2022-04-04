@@ -6,6 +6,8 @@ const consejos = (sequelize, type) => {
             autoIncrement: true,
         },
         nombreConsejo: type.STRING,
+        imagenConsejo: type.STRING,
+        videoConsejo: type.STRING,
         creacionConsejos: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

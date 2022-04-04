@@ -1,25 +1,24 @@
-const sintomas = (sequelize, type) => {
-    return sequelize.define('sintomas', {
-        idSintomas: {
+const detalleProyecto = (sequelize, type) => {
+    return sequelize.define('detalleProyectos', {
+        idDetalleProyecto: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        nombreSintomas: type.STRING,
-        descrpcionSintomas:type.STRING(2500),
-        creacionSintomas : {
+        objetivoDetalleProyecto: type.STRING(2500),
+        crecionDetalleProyecto:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         },
-        actulizacionSintomas : {
+        actualizacionDetalleProyectos:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
             allowNull: false
         }
-    }, {
+    },{
         timestamps: false,
-    })
+     })    
 }
 
-module.exports = sintomas
+module.exports = detalleProyecto

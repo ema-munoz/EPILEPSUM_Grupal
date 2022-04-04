@@ -6,6 +6,8 @@ const experiencias = (sequelize, type) => {
             autoIncrement: true,
         },
         nombreExperiencia: type.STRING,
+        imagen: type.STRING,
+        videoExperiencia: type.STRING,
         creacionExperiencias: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

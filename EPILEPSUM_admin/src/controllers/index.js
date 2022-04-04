@@ -2,12 +2,11 @@ const orm = require("../Configuration/basededatos.orm");
 const sql = require("../Configuration/basededatos.sql");
 const index = {};
 
-index.login = (req, res) => {
-    res.render("Usuario/Verificacion");
+index.mostrar = (req, res) => {
+    res.render("Administracion/Verificacion");
 }
 
-
-index.verificacion = async(req, res, done) => {
+index.verificacion = async (req, res, done) => {
     const {
         username
     } = req.body
@@ -27,31 +26,6 @@ index.verificacion = async(req, res, done) => {
         }
     } else {
         res.redirect('/Registro');
-    }
-
-
-    const traerDatosFamiliar = await sql.query("SELECT * FROM familiares")
-
-    if (traerDatosFamiliar.length == 0) {
-        const familiar = traerDatosFamiliar[0]
-
-        if (familiar === undefined) {
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('MADRE')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PADRE')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('HERMANO')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('HERMANA')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('TÍA')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('TÍO')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('ABUELO')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('ABUELA')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PRIMO')");
-            await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PRIMA')");
-
-            console.log("Guardado con éxito.")
-        }
-
-    } else {
-        console.log("Ya esta creado.")
     }
 }
 

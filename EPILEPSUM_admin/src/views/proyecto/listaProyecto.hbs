@@ -1,8 +1,8 @@
-<form action="/project/lista/{{user.idusuario}}" method="get"></form>
+<form action="/proyecto/lista/{{user.idusuario}}" method="get"></form>
 <div id="contenido">
     {{#each listas}}
     <div id="nombre">
-       <label >{{}}</label> 
+       <label >{{nombreProyecto}}</label> 
     </div>
     {{/each}}
     {{#each objetivos}}

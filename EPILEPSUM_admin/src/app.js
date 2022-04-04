@@ -57,9 +57,9 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 //public
 
-//routas
+//routes
 app.use(require("./routes/index"));
 app.use(require("./routes/registro"));
-app.use('/project', require('./routes/projectRutas'))
+app.use('/proyecto', require('./routes/proyectoRutas'))
 
 module.exports = app;
