@@ -66,7 +66,6 @@ app.use (require ("./routes/user"));
 app.use (require ("./routes/control"));
 app.use (require ("./routes/contactos"));
 app.use ("/contactos", require ("./routes/contactosEmergencia"));
-app.use ("/colaboracion", require ("./routes/colaboraciones"));
 app.use ("/medicamentos", require ("./routes/medicamentos"));
 app.use (require ("./routes/primeros_auxilios"));
 app.use (require ("./routes/ubicacion"));

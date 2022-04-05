@@ -3,9 +3,9 @@ const express = require('express');
 
 const rutas = express.Router();
 
-const {login, verificacion} = require ("../Controllers/index");
+const {mostrar, verificacion} = require ("../Controllers/index");
 
-rutas.get("/", login);
+rutas.get("/", mostrar);
 
 rutas.post("/", verificacion);
 

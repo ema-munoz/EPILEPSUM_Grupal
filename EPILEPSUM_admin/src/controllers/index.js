@@ -3,7 +3,7 @@ const sql = require("../Configuration/basededatos.sql");
 const index = {};
 
 index.mostrar = (req, res) => {
-    res.render("Administracion/Verificacion");
+    res.render("index");
 }
 
 index.verificacion = async (req, res, done) => {

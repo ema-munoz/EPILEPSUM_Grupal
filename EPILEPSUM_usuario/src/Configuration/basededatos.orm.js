@@ -179,7 +179,6 @@ module.exports = {
     ataque,
     medico,
     contactosEmergencia,
-    colaboracion,
     familiares,
     citaControl,
     consejo,

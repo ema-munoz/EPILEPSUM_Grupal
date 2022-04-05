@@ -19,7 +19,6 @@ const medicacionUsuarioModels = require('../Model/medicacion')
 const ataquesModels = require('../Model/ataquesEpilepticos')
 const medicosModels = require('../Model/medico')
 const contactosEmergenciaModels = require('../Model/contactosEmergencia')
-const colaboracionesModels = require('../Model/colaboraciones')
 const familiaresModels = require ('../Model/familiares')
 const citaControlModels = require ('../Model/citaControl')
 const consejosModels = require ('../Model/consejos')
@@ -75,7 +74,6 @@ sequelize.authenticate()
   const ataque = ataquesModels(sequelize, Sequelize)
   const medico = medicosModels(sequelize, Sequelize)
   const contactosEmergencia = contactosEmergenciaModels(sequelize, Sequelize)
-  const colaboracion = colaboracionesModels(sequelize, Sequelize)
   const familiares = familiaresModels(sequelize, Sequelize)
   const citaControl = citaControlModels(sequelize, Sequelize)
   const consejo = consejosModels(sequelize, Sequelize)
@@ -109,9 +107,6 @@ sequelize.authenticate()
 
   usuario.hasMany(contactosEmergencia)
   contactosEmergencia.belongsTo(usuario)
-
-  usuario.hasMany(colaboracion)
-  colaboracion.belongsTo(usuario)
 
   usuario.hasMany(medicacion)
   medicacion.belongsTo(usuario)
@@ -179,7 +174,6 @@ module.exports = {
     ataque,
     medico,
     contactosEmergencia,
-    colaboracion,
     familiares,
     citaControl,
     consejo,

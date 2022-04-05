@@ -6,10 +6,10 @@ const sql = require('../Configuration/basededatos.sql');
 proyectoCtl.enseñar = async(req, res) => {
     const id = req.user.idusuario
     const proyecto = await sql.query('select * from proyectos where usuarioIdusuario = ?', [id])
-    ren.render('proyecto/agregarProyecto', { proyecto })
+    res.render('proyecto/agregarProyecto', { proyecto })
 }
 
-proyectoCtl.dirigir = (req, res) => {
+proyectoCtl.dirigir = async(req, res) => {
     const id = req.user.idusuario
     const ids = req.params.id
     const { nombreProyecto, objetivos, numero } = req.body
