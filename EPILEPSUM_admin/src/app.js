@@ -58,8 +58,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //public
 
 //routes
-app.use(require("./routes/index"));
-app.use(require("./routes/registro"));
-app.use('/proyecto', require('./routes/proyectoRutas'))
+app.use (require("./routes/index"));
+app.use (require ("./routes/registro"));
+app.use (require ("./routes/actualizacion"));
+app.use (require ("./routes/user"));
+app.use ('/proyecto', require('./routes/proyectoRutas'))
 
 module.exports = app;

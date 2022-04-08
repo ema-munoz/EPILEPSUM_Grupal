@@ -1,16 +1,16 @@
 const medicacion =(sequelize, type)=>{
     return sequelize.define('medicaciones',{
-        idmedicaciones:{
+        idMedicaciones:{
             type:type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
 
-        nombre: type.STRING,
-        dosis: type.INTEGER,
-        hora: type.STRING,
-        fechaInicio: type.STRING,
-        fechaFinal: type.STRING,
+        nombreMedicaciones: type.STRING,
+        dosisMedicaciones: type.INTEGER,
+        horaMedicaciones: type.STRING,
+        fechaInicioMedicaciones: type.STRING,
+        fechaFinalMedicaciones: type.STRING,
         crecionMedicaciones:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

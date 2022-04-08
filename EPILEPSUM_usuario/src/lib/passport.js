@@ -13,7 +13,7 @@ passport.use(
             passReqToCallback: true
         },
         async (req, username, password, done) => {
-            const rows = await pool.usuario.findOne({
+            const rows = await pool.pacientes.findOne({
                 where: {
                     username: username
                 }
@@ -25,7 +25,7 @@ passport.use(
                     user.password
                 );
                 if (validPassword) {
-                    done(null, user, req.flash("success", "Bienvenido/a " + user.nombre));
+                    done(null, user, req.flash("success", "Bienvenido/a " + user.nombrePaciente));
                 } else {
                     done(null, false, req.flash("success", "Contraseña incorrecta"));
                 }
@@ -33,7 +33,7 @@ passport.use(
                 return done(
                     null,
                     false,
-                    req.flash("message", "El nombre de usuario no existe.")
+                    req.flash("message", "El nombre del usuario no existe.")
                 );
             }
         }
@@ -48,59 +48,67 @@ passport.use(
             passReqToCallback: true
         },
         async (req, username, password, done) => {
-            const usuario = await pool.usuario.findOne({
+            const pacientes = await pool.pacientes.findOne({
                 where: {
                     username: username
                 }
             });
-            if (usuario === null) {
+            if (pacientes === null) {
                 const {
-                    nombre,
-                    telefono,
-                    edad
+                    cedulaPaciente,
+                    nombrePaciente,
+                    apellidoPaciente,
+                    fechaNacimientoPaciente,
+                    celularPaciente
                 } = req.body;
-
+                
                 let newUser = {
-                    nombre,
-                    telefono,
-                    edad,
+                    cedulaPaciente,
+                    nombrePaciente,
+                    apellidoPaciente,
+                    fechaNacimientoPaciente,
+                    celularPaciente,
                     username,
                     password
                 };
 
                 newUser.password = await helpers.encryptPassword(password);
                 // Saving in the Database
-                const result = await pool.usuario.create(newUser)
+                const result = await pool.pacientes.create(newUser)
                 newUser.id = result.insertId;
                 return done(null, newUser);
             } else {
-                if (usuario) {
-                    const usuarios = usuario
+                if (pacientes) {
+                    const pacientes = pacientes
 
-                    if (username == usuarios.username) {
-                        done(null, false, req.flash("message", "El Usuario ya existe."));
+                    if (username == pacientes.username) {
+                        done(null, false, req.flash("message", "El pacientes ya existe."));
                     } else {
                         const {
-                            nombre,
-                            telefono,
-                            edad
+                            cedulaPaciente,
+                            nombrePaciente,
+                            apellidoPaciente,
+                            fechaNacimientoPaciente,
+                            celularPaciente
                         } = req.body;
-        
+
                         let newUser = {
-                            nombre,
-                            telefono,
-                            edad,
+                            cedulaPaciente,
+                            nombrePaciente,
+                            apellidoPaciente,
+                            fechaNacimientoPaciente,
+                            celularPaciente,
                             username,
                             password
                         };
-        
+
                         newUser.password = await helpers.encryptPassword(password);
                         // Saving in the Database
-                        const result = await pool.usuario.create(newUser)
+                        const result = await pool.pacientes.create(newUser)
                         newUser.id = result.insertId;
                         return done(null, newUser);
                     }
-                } 
+                }
             }
         }
     )

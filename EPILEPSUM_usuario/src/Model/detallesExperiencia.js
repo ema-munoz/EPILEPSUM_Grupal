@@ -1,11 +1,11 @@
 const detallesExperiencias = (sequelize, type) => {
     return sequelize.define('detallesExperiencias', {
-        iddetallesExperiencias: {
+        idDetallesExperiencias: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        experiencias: type.STRING(2500),
+        experienciasDetallesExperiencias: type.STRING(2500),
         creacionDetallesExperiencias: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

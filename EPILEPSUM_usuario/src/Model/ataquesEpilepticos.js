@@ -1,13 +1,13 @@
 const ataquesEpilepticos = (sequelize, type) => {
     return sequelize.define('ataquesEpilepticos', {
-        idataquesEpilepticos: {
+        idAtaquesEpilepticos: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        dias: type.STRING,
-        hora: type.STRING,
-        duracion: type.STRING,
+        diasAtaquesEpilepticos: type.STRING,
+        horaAtaquesEpilepticos: type.STRING,
+        duracionAtaquesEpilepticos: type.STRING,
         creacionAtaquesEpilepticos: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
@@ -22,6 +22,5 @@ const ataquesEpilepticos = (sequelize, type) => {
         timestamps: false,
     })
 }
-
 
 module.exports = ataquesEpilepticos

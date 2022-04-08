@@ -7,27 +7,27 @@
 
 <div id="contenedor">
 {{#each enlistar}}
-<form action="/contactos/editar/{{idcontactosEmergencia}}" method="POST">
+<form action="/contactos/editar/{{idContactosEmergencia}}" method="POST">
 
     <div id="Nombres">
         <label>
             Nombre:
         </label>
-        <input type="text" name="nombre" id="nombre" value="{{nombre}}" required>
+        <input type="text" name="nombreContactosEmergencia" id="nombre" value="{{nombreContactosEmergencia}}" required>
     </div>
         
     <div id="Telefono">
         <label>
         Teléfono:
         </label>
-        <input type="number" name="telefono" id="telefono" value="0{{telefono}}">
+        <input type="number" name="telefonoContactosEmergencia" id="telefono" value="0{{telefonoContactosEmergencia}}">
     </div>
     
     <div id="Celular">
         <label>
         Celular:
         </label>
-        <input type="number" name="celular" id="celular" value="0{{celular}}" required>
+        <input type="number" name="celularContactosEmergencia" id="celular" value="0{{celularContactosEmergencia}}" required>
     </div>
     
     <div id="boton">
@@ -42,7 +42,7 @@
             </label>
             <select name="familiar" id="familiar" required>
                 {{#each familiar}}
-                <option value="{{this.idfamiliar}}">
+                <option value="{{this.idFamiliar}}">
                     {{this.nombreFamiliar}}
                 </option>
                 {{/each}}

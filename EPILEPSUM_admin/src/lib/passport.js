@@ -33,7 +33,7 @@ passport.use(
                 return done(
                     null,
                     false,
-                    req.flash("message", "El nombre de usuario no existe.")
+                    req.flash("message", "El nombre del usuario no existe.")
                 );
             }
         }
@@ -55,15 +55,19 @@ passport.use(
             });
             if (usuario === null) {
                 const {
-                    nombre,
-                    telefono,
-                    edad
-                } = req.body;
+                    cedulaUsuario,
+                    nombreUsuario,
+                    apellidoUsuario,
+                    fechaNacimientoUsuario,
+                    celularUsuario
+        } = req.body;
 
                 let newUser = {
-                    nombre,
-                    telefono,
-                    edad,
+                    cedulaUsuario,
+                    nombreUsuario,
+                    apellidoUsuario,
+                    fechaNacimientoUsuario,
+                    celularUsuario,
                     username,
                     password
                 };
@@ -81,26 +85,30 @@ passport.use(
                         done(null, false, req.flash("message", "El Usuario ya existe."));
                     } else {
                         const {
-                            nombre,
-                            telefono,
-                            edad
+                            cedulaUsuario,
+                            nombreUsuario,
+                            apellidoUsuario,
+                            fechaNacimientoUsuario,
+                            celularUsuario
                         } = req.body;
-        
+
                         let newUser = {
-                            nombre,
-                            telefono,
-                            edad,
+                            cedulaUsuario,
+                            nombreUsuario,
+                            apellidoUsuario,
+                            fechaNacimientoUsuario,
+                            celularUsuario,
                             username,
                             password
                         };
-        
+
                         newUser.password = await helpers.encryptPassword(password);
                         // Saving in the Database
                         const result = await pool.usuario.create(newUser)
                         newUser.id = result.insertId;
                         return done(null, newUser);
                     }
-                } 
+                }
             }
         }
     )

@@ -9,14 +9,14 @@ medicamentos.mostrar = (req, res) => {
 
 medicamentos.agregar = async (req, res) => {
     const medicamentosId = req.params.id;
-    const {nombre, dosis, hora, fechaInicio, fechaFinal} = req.body
+    const {nombreMedicaciones, dosisMedicaciones, horaMedicaciones, fechaInicioMedicaciones, fechaFinalMedicaciones} = req.body
     const nuevoMedicamento = {
-        nombre,
-        dosis,
-        hora,
-        fechaInicio, 
-        fechaFinal,
-        usuarioIdusuario: medicamentosId
+        nombreMedicaciones,
+        dosisMedicaciones,
+        horaMedicaciones,
+        fechaInicioMedicaciones,
+        fechaFinalMedicaciones,
+        pacienteIdPaciente: medicamentosId
     }
     await baseDatosORM.medicacion.create(nuevoMedicamento)
     req.flash ("sucess", "Medicamento Registrado.")
@@ -25,28 +25,28 @@ medicamentos.agregar = async (req, res) => {
 
 medicamentos.lista = async (req, res) => {
     const medicamentosId = req.params.id;
-    const enlistar = await baseDatosSQL.query("SELECT * FROM medicaciones WHERE usuarioIdusuario = ?", [medicamentosId])
+    const enlistar = await baseDatosSQL.query("SELECT * FROM medicaciones WHERE pacienteIdPaciente = ?", [medicamentosId])
     res.render("Medicamentos/medicamentosLista", {enlistar})
 }
 
 medicamentos.traerDatos = async(req, res) => {
     const medicamentosId = req.params.id;
-    const enlistar = await baseDatosSQL.query ("SELECT * FROM medicaciones WHERE idmedicaciones = ?", [medicamentosId])
+    const enlistar = await baseDatosSQL.query ("SELECT * FROM medicaciones WHERE idMedicaciones = ?", [medicamentosId])
     res.render("Medicamentos/medicamentosEditar", {enlistar});
 }
 
 medicamentos.editar = async (req, res) => {
     const medicamentosId = req.params.id;
-    const id = req.user.idusuario
-    const {nombre, dosis, hora, fechaInicio, fechaFinal} = req.body
+    const id = req.user.idPaciente
+    const {nombreMedicaciones, dosisMedicaciones, horaMedicaciones, fechaInicioMedicaciones, fechaFinalMedicaciones} = req.body
     const actualizacion = {
-        nombre,
-        dosis,
-        hora,
-        fechaInicio, 
-        fechaFinal
+        nombreMedicaciones,
+        dosisMedicaciones,
+        horaMedicaciones,
+        fechaInicioMedicaciones, 
+        fechaFinalMedicaciones
     }
-    await baseDatosORM.medicacion.findOne({where: {idmedicaciones: medicamentosId}})
+    await baseDatosORM.medicacion.findOne({where: {idMedicaciones: medicamentosId}})
     .then( medicacion => {
         medicacion.update(actualizacion)
         req.flash ("sucess", "Información actualizada.")
@@ -56,8 +56,8 @@ medicamentos.editar = async (req, res) => {
 
 medicamentos.eliminar = async (req, res) => {
     const medicamentosId = req.params.id;
-    const id = req.user.idusuario
-    await baseDatosORM.medicacion.destroy({where: {idmedicaciones: medicamentosId}})
+    const id = req.user.idPaciente
+    await baseDatosORM.medicacion.destroy({where: {idMedicaciones: medicamentosId}})
     res.redirect("/medicamentos/lista/" + id);
 }
 

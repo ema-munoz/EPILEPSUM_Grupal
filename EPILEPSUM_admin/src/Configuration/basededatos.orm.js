@@ -104,24 +104,35 @@ sequelize.authenticate()
   usuario.hasMany(sintomas)
   sintomas.belongsTo(usuario)
 
+  usuario.hasMany(detallesRol)
+  detallesRol.belongsTo(usuario)
 
-  usuario.hasMany(contactosEmergencia)
-  contactosEmergencia.belongsTo(usuario)
+  usuario.hasMany(experiencias)
+  experiencias.belongsTo(usuario)
 
-  usuario.hasMany(medicacion)
-  medicacion.belongsTo(usuario)
+  usuario.hasMany(preguntas)
+  preguntas.belongsTo(usuario)
 
-  usuario.hasMany(ataque)
-  ataque.belongsTo(usuario)
+  usuario.hasMany(respuestas)
+  respuestas.belongsTo(usuario)
 
-  usuario.hasMany(medico)
-  medico.belongsTo(usuario)
+  pacientes.hasMany(contactosEmergencia)
+  contactosEmergencia.belongsTo(pacientes)
+
+  pacientes.hasMany(experiencias)
+  experiencias.belongsTo(pacientes)
+
+  pacientes.hasMany(medicacion)
+  medicacion.belongsTo(pacientes)
+
+  pacientes.hasMany(ataque)
+  ataque.belongsTo(pacientes)
 
   familiares.hasMany(contactosEmergencia)
   contactosEmergencia.belongsTo(familiares)
 
-  usuario.hasMany(detallesRol)
-  detallesRol.belongsTo(usuario)
+  pacientes.hasMany(detallesRol)
+  detallesRol.belongsTo(pacientes)
 
   rol.hasMany(detallesRol)
   detallesRol.belongsTo(rol)
@@ -135,8 +146,8 @@ sequelize.authenticate()
   medicacion.hasMany(detallesMedicamentos)
   detallesMedicamentos.belongsTo(medicacion)
 
-  usuario.hasMany(citaControl)
-  citaControl.belongsTo(usuario)
+  pacientes.hasMany(citaControl)
+  citaControl.belongsTo(pacientes)
 
   proyecto.hasMany(detalleProyecto)
   detalleProyecto.belongsTo(proyecto)
@@ -144,29 +155,17 @@ sequelize.authenticate()
   usuario.hasMany(proyecto)
   proyecto.belongsTo(usuario)
 
-  usuario.hasMany(preguntas)
-  preguntas.belongsTo(usuario)
+  pacientes.hasMany(preguntas)
+  preguntas.belongsTo(pacientes)
 
-  usuario.hasMany(respuestas)
-  respuestas.belongsTo(usuario)
+  pacientes.hasMany(respuestas)
+  respuestas.belongsTo(pacientes)
   
   preguntas.hasMany(respuestas)
   respuestas.belongsTo(preguntas)
 
-  pacientes.hasMany(experiencias)
-  experiencias.belongsTo(pacientes)
-
   pacientes.hasMany(consejo)
   consejo.belongsTo(pacientes)
-
-  pacientes.hasMany(citaControl)
-  citaControl.belongsTo(pacientes)
-
-  pacientes.hasMany(medicacion)
-  medicacion.belongsTo(pacientes)
-
-  pacientes.hasMany(contactosEmergencia)
-  contactosEmergencia.belongsTo(pacientes)
 
 module.exports = {
     usuario,

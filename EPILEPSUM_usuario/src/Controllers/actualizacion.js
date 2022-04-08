@@ -5,7 +5,7 @@ const actualizacion = {};
 
 actualizacion.verificacion = async(req, res)=>{
     const id = req.params.id;
-    const datosBD = await sql.query ("SELECT * FROM usuarios WHERE idusuario = ?", [id]);
+    const datosBD = await sql.query ("SELECT * FROM pacientes WHERE idPaciente = ?", [id]);
     res.render("Usuario/Recuperacion", {datosBD});
 }
 
@@ -15,7 +15,7 @@ actualizacion.verificar = async(req, res)=>{
         password
     }
     nuevaActualizacion.password = await encriptacion.encryptPassword(password);
-    await orm.usuario.findOne ({where: {idusuario: id}})
+    await orm.pacientes.findOne ({where: {idPaciente: id}})
     .then(finalActualizacion =>{
         finalActualizacion.update(nuevaActualizacion)
         req.flash("success", "Contraseña Actualizada")

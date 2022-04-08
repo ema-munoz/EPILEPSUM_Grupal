@@ -3,7 +3,7 @@ const sql = require("../Configuration/basededatos.sql");
 const index = {};
 
 index.mostrar = (req, res) => {
-    res.render("index");
+    res.render("Usuario/Verificacion");
 }
 
 index.verificacion = async (req, res, done) => {
@@ -22,7 +22,7 @@ index.verificacion = async (req, res, done) => {
         if (clientes.username === null) {
             done(null, false, req.flash("success", "No tiene cuenta con este correo, usted será redirigido a Registro."));
         } else {
-            res.redirect('/Login/' + clientes.idusuario);
+            res.redirect('/Login/' + clientes.idUsuario);
         }
     } else {
         res.redirect('/Registro');

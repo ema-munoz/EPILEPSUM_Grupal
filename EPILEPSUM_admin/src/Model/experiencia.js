@@ -1,12 +1,12 @@
 const experiencias = (sequelize, type) => {
     return sequelize.define('experiencias', {
-        idexperiencias: {
+        idExperiencias: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
         nombreExperiencia: type.STRING,
-        imagen: type.STRING,
+        imagenExperiencia: type.STRING,
         videoExperiencia: type.STRING,
         creacionExperiencias: {
             type: 'TIMESTAMP',

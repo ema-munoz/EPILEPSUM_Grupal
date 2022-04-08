@@ -18,7 +18,7 @@ registro.registro = passport.authenticate("local.signup", {
 
 registro.vistaLogin = async(req, res) => {
     const id = req.params.id;
-    const datosBD = await sql.query("SELECT * FROM usuarios WHERE idusuario = ?", [id]);
+    const datosBD = await sql.query("SELECT * FROM pacientes WHERE idPaciente = ?", [id]);
     res.render("Usuario/Login", { datosBD });
 }
 

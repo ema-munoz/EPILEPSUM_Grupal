@@ -5,7 +5,7 @@
     <img src="/img/fondos/sistemaNervioso.png">
 </div>
 
-<form action="/medicamentos/lista/{{user.idusuario}}" method="GET"></form>
+<form action="/medicamentos/lista/{{user.idPaciente}}" method="GET"></form>
 
 <div id="contenedor">
     <div class="row">
@@ -19,51 +19,51 @@
 
             <div id="Nombres">
                 <p>
-                    Medicación: {{nombre}}
+                    Medicación: {{nombreMedicaciones}}
                 </p>
             </div>
 
             <div id="Dosis">
                 <p> 
-                    Dosis al Día: {{dosis}}
+                    Dosis al Día: {{dosisMedicaciones}}
                 </p>
             </div>
 
             <div id="Horario">
                 <p> 
-                    Horario de la Dosis: {{hora}}
+                    Horario de la Dosis: {{horaMedicaciones}}
                 </p>
             </div>
 
             <div id="FechaInicio">
                 <p> 
-                    Fecha de inicio: {{fechaInicio}}
+                    Fecha de inicio: {{fechaInicioMedicaciones}}
                 </p>
             </div>
 
             <div id="FechaFinal">
                 <p> 
-                    Fecha de Terminación: {{fechaFinal}}
+                    Fecha de Terminación: {{fechaFinalMedicaciones}}
                 </p>
             </div>
 
-            <div id="botonEditar">    
-                <a href="/medicamentos/editar/{{idmedicaciones}}">
-                    <button type="button">Editar</button>
-                </a>
+            <div id="botonEditar">
+                <button>
+                <a href="/medicamentos/editar/{{idMedicaciones}}">Editar</a>
+                </button>
             </div>
 
             <div id="botonEliminar">
-                <a href="/medicamentos/eliminar/{{idmedicaciones}}">
-                    <button type="button">Eliminar</button>
-                </a>
+                <button>
+                    <a href="/medicamentos/eliminar/{{idMedicaciones}}">Eliminar</a>
+                </button>
             </div>
         </div>
 
         {{else}}
         <div id="mensaje">
             <p><b>Usted no tiene registrado ningún medicamento. </b></p>
-            <a href="/medicamentos/agregar/{{user.idusuario}}">
+            <a href="/medicamentos/agregar/{{user.idPaciente}}">
                 <button type="button">¿Desea registrar?</button>
             </a>
         </div>
@@ -73,7 +73,7 @@
 
  
 <div id="plus">
-    <a href="/medicamentos/agregar/{{user.idusuario}}">
+    <a href="/medicamentos/agregar/{{user.idPaciente}}">
         <button type="button"><img src="/img/usuarios/plus.png"></button>
     </a>
 </div>

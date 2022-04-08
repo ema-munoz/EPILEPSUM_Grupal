@@ -1,6 +1,6 @@
 const detallesMedicamentos = (sequelize, type) => {
     return sequelize.define('detallesMedicamentos', {
-        iddetallesMedicamentos: {
+        idDetallesMedicamentos: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,

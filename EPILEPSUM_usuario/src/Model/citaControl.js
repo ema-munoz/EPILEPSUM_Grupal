@@ -1,15 +1,14 @@
 const citaControl = (sequelize, type) => {
     return sequelize.define('citasControl', {
-        idcitaControl: {
+        idCitaControl: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        nombreCita: type.STRING,
-        nombrePaciente: type.STRING,
-        fecha: type.STRING,
-        hora: type.STRING,
-        establecimiento: type.STRING,
+        nombreCitaControl: type.STRING,
+        fechaCitaControl: type.STRING,
+        horaCitaControl: type.STRING,
+        establecimientoCitaControl: type.STRING,
         creacionCitaControl: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

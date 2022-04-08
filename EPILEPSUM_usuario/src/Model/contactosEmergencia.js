@@ -1,15 +1,14 @@
 const contactosEmergencia = (sequelize, type) => {
     return sequelize.define ("contactosEmergencia", {
-        idcontactosEmergencia: {
+        idContactosEmergencia: {
             type: type.INTEGER, 
             primaryKey: true,
             autoIncrement: true
         },
 
-        nombre: type.STRING,
-        familiar: type.STRING,
-        telefono: type.INTEGER,
-        celular: type.INTEGER,
+        nombreContactosEmergencia: type.STRING,
+        telefonoContactosEmergencia: type.INTEGER,
+        celularContactosEmergencia: type.INTEGER,
         crecionContactosEmergencia:{
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

@@ -1,13 +1,13 @@
 const medico = (sequelize, type)=>{
     return sequelize.define('medicos',{
-        idmedicos: {
+        idMedicos: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        nombre: type.STRING,
-        telefono: type.INTEGER,
-        edad: type.STRING,
+        nombreMedicos: type.STRING,
+        telefonoMedicos: type.INTEGER,
+        edadMedicos: type.STRING,
         username: type.STRING,
         password: type.STRING(150),
         crecionMedicos:{

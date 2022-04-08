@@ -11,7 +11,7 @@ index.verificacion = async (req, res, done) => {
     const {
         username
     } = req.body
-    const verificar = await orm.usuario.findOne({
+    const verificar = await orm.pacientes.findOne({
         where: {
             username: username
         }
@@ -23,7 +23,7 @@ index.verificacion = async (req, res, done) => {
         if (clientes.username === null) {
             done(null, false, req.flash("success", "No tiene cuenta con este correo, usted será redirigido a Registro."));
         } else {
-            res.redirect('/Login/' + clientes.idusuario);
+            res.redirect('/Login/' + clientes.idPaciente);
         }
     } else {
         res.redirect('/Registro');
@@ -46,6 +46,8 @@ index.verificacion = async (req, res, done) => {
             await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('ABUELA')");
             await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PRIMO')");
             await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PRIMA')");
+
+            await sql.query("CREATE VIEW listaExperiencia as SELECT e.*, d.* FROM experiencias e join detallesexperiencias d ON  d.experienciaIdExperiencias = e.idExperiencias")
 
             console.log("Guardado con éxito.")
         }

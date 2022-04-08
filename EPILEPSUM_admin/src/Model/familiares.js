@@ -1,6 +1,6 @@
 const familiar =(sequelize, type)=>{
     return sequelize.define('familiares', {
-        idfamiliar:{
+        idFamiliar:{
             type:type.INTEGER,
             primaryKey: true,
             autoIncrement: true,            

@@ -1,6 +1,6 @@
 const detallesRol = (sequelize, type) => {
     return sequelize.define('detallesRol', {
-        iddetallesRol: {
+        idDetallesRol: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,

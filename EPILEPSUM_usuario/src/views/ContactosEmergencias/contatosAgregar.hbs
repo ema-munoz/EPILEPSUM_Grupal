@@ -6,13 +6,13 @@
 </div>
 
 <div id="contenedor">
-    <form action="/contactos/agregar/{{user.idusuario}}" method="POST">
+    <form action="/contactos/agregar/{{user.idPaciente}}" method="POST">
         
         <div id="Nombres">
             <label>
                 Nombre:
             </label>
-            <input type="text" name="nombre" id="nombre" required>
+            <input type="text" name="nombreContactosEmergencia" id="nombre" required>
         </div>
 
         <div id="Familiar">
@@ -21,7 +21,7 @@
             </label>
             <select name="familiar" id="familiar" required>
                 {{#each familiar}}
-                <option value="{{this.idfamiliar}}">
+                <option value="{{this.idFamiliar}}">
                     {{this.nombreFamiliar}}
                 </option>
                 {{/each}}
@@ -32,14 +32,14 @@
             <label>
             Teléfono (Opcional):
             </label>
-            <input type="number" name="telefono" id="telefono">
+            <input type="number" name="telefonoContactosEmergencia" id="telefono">
         </div>
 
         <div id="Celular">
             <label>
             Celular:
             </label>
-            <input type="number" name="celular" id="celular" required>
+            <input type="number" name="celularContactosEmergencia" id="celular" required>
         </div>
 
         <div id="boton">

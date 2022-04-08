@@ -1,13 +1,13 @@
 const respuestas = (sequelize, type) => {
     return sequelize.define('respuestas', {
-        idRespuestas: {
+        idRespuesta: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
         respuesta: type.STRING,
-        video: type.STRING,
-        imagen: type.STRING,
+        videoRespuesta: type.STRING,
+        imagenRespuesta: type.STRING,
         creacionRespuestas: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

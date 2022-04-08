@@ -7,8 +7,8 @@ user.principal = (req, res)=>{
 }
 
 user.listar = async (req, res) => {
-    const id = req.user.idusuario
-    const enlistar = await baseDatosSQL.query("SELECT * FROM contactosEmergencia WHERE usuarioIdusuario = ?",[id])
+    const id = req.user.idPaciente
+    const enlistar = await baseDatosSQL.query("SELECT * FROM contactosEmergencia WHERE pacienteIdPaciente = ?",[id])
     res.render("Página_Principal", {enlistar});
 }
 

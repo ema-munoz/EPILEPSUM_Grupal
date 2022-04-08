@@ -19,7 +19,6 @@ const medicacionUsuarioModels = require('../Model/medicacion')
 const ataquesModels = require('../Model/ataquesEpilepticos')
 const medicosModels = require('../Model/medico')
 const contactosEmergenciaModels = require('../Model/contactosEmergencia')
-const colaboracionesModels = require('../Model/colaboraciones')
 const familiaresModels = require ('../Model/familiares')
 const citaControlModels = require ('../Model/citaControl')
 const consejosModels = require ('../Model/consejos')
@@ -75,7 +74,6 @@ sequelize.authenticate()
   const ataque = ataquesModels(sequelize, Sequelize)
   const medico = medicosModels(sequelize, Sequelize)
   const contactosEmergencia = contactosEmergenciaModels(sequelize, Sequelize)
-  const colaboracion = colaboracionesModels(sequelize, Sequelize)
   const familiares = familiaresModels(sequelize, Sequelize)
   const citaControl = citaControlModels(sequelize, Sequelize)
   const consejo = consejosModels(sequelize, Sequelize)
@@ -106,27 +104,35 @@ sequelize.authenticate()
   usuario.hasMany(sintomas)
   sintomas.belongsTo(usuario)
 
+  usuario.hasMany(detallesRol)
+  detallesRol.belongsTo(usuario)
 
-  usuario.hasMany(contactosEmergencia)
-  contactosEmergencia.belongsTo(usuario)
+  usuario.hasMany(experiencias)
+  experiencias.belongsTo(usuario)
 
-  usuario.hasMany(colaboracion)
-  colaboracion.belongsTo(usuario)
+  usuario.hasMany(preguntas)
+  preguntas.belongsTo(usuario)
 
-  usuario.hasMany(medicacion)
-  medicacion.belongsTo(usuario)
+  usuario.hasMany(respuestas)
+  respuestas.belongsTo(usuario)
 
-  usuario.hasMany(ataque)
-  ataque.belongsTo(usuario)
+  pacientes.hasMany(contactosEmergencia)
+  contactosEmergencia.belongsTo(pacientes)
 
-  usuario.hasMany(medico)
-  medico.belongsTo(usuario)
+  pacientes.hasMany(experiencias)
+  experiencias.belongsTo(pacientes)
+
+  pacientes.hasMany(medicacion)
+  medicacion.belongsTo(pacientes)
+
+  pacientes.hasMany(ataque)
+  ataque.belongsTo(pacientes)
 
   familiares.hasMany(contactosEmergencia)
   contactosEmergencia.belongsTo(familiares)
 
-  usuario.hasMany(detallesRol)
-  detallesRol.belongsTo(usuario)
+  pacientes.hasMany(detallesRol)
+  detallesRol.belongsTo(pacientes)
 
   rol.hasMany(detallesRol)
   detallesRol.belongsTo(rol)
@@ -140,8 +146,8 @@ sequelize.authenticate()
   medicacion.hasMany(detallesMedicamentos)
   detallesMedicamentos.belongsTo(medicacion)
 
-  usuario.hasMany(citaControl)
-  citaControl.belongsTo(usuario)
+  pacientes.hasMany(citaControl)
+  citaControl.belongsTo(pacientes)
 
   proyecto.hasMany(detalleProyecto)
   detalleProyecto.belongsTo(proyecto)
@@ -149,29 +155,17 @@ sequelize.authenticate()
   usuario.hasMany(proyecto)
   proyecto.belongsTo(usuario)
 
-  usuario.hasMany(preguntas)
-  preguntas.belongsTo(usuario)
+  pacientes.hasMany(preguntas)
+  preguntas.belongsTo(pacientes)
 
-  usuario.hasMany(respuestas)
-  respuestas.belongsTo(usuario)
+  pacientes.hasMany(respuestas)
+  respuestas.belongsTo(pacientes)
   
   preguntas.hasMany(respuestas)
   respuestas.belongsTo(preguntas)
 
-  pacientes.hasMany(experiencias)
-  experiencias.belongsTo(pacientes)
-
   pacientes.hasMany(consejo)
   consejo.belongsTo(pacientes)
-
-  pacientes.hasMany(citaControl)
-  citaControl.belongsTo(pacientes)
-
-  pacientes.hasMany(medicacion)
-  medicacion.belongsTo(pacientes)
-
-  pacientes.hasMany(contactosEmergencia)
-  contactosEmergencia.belongsTo(pacientes)
 
 module.exports = {
     usuario,

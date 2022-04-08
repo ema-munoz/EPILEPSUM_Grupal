@@ -1,15 +1,17 @@
 const usuario = (sequelize, type) => {
     return sequelize.define('usuario', {
-        idusuario: {
+        idUsuario: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
         },
-        nombre: type.STRING,
-        telefono: type.INTEGER,
-        edad: type.INTEGER,
         username: type.STRING(99),
         password: type.STRING,
+        cedulaUsuario:type.STRING(150),
+        nombreUsuario: type.STRING,
+        apellidoUsuario: type.STRING,
+        fechaNacimientoUsuario: type.STRING(50),
+        celularUsuario: type.STRING(50),
         creacionUsuario: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),

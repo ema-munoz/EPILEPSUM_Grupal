@@ -6,8 +6,8 @@ const preguntas = (sequelize, type) => {
             autoIncrement: true,
         },
         pregunta: type.STRING,
-        video: type.STRING,
-        imagen: type.STRING,
+        videoPreguntas: type.STRING,
+        imagenPreguntas: type.STRING,
         creacionPreguntas: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
