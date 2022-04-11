@@ -6,7 +6,7 @@ index.mostrar = (req, res) => {
     res.render("Usuario/Verificacion");
 }
 
-index.verificacion = async (req, res, done) => {
+index.verificacion = async(req, res, done) => {
     const {
         username
     } = req.body

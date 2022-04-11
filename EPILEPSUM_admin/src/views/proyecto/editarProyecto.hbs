@@ -1,6 +1,6 @@
 <form action="/proyecto/editar/{{user.idUsuario}}" method="post">
     <div id="contenido">
-        {{#each listas}}
+        {{#each lista}}
         <div id="Nombre">
             <label>Nombre Proyecto:</label>
             <input type="text" name="nombreProyecto" id="nombre" value="{{nombreProyecto}}">
@@ -16,3 +16,6 @@
         </div>
     </div>
 </form>
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

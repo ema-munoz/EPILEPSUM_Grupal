@@ -181,11 +181,9 @@ module.exports = {
     detallesRol,
     experiencias,
     rol,
-
     proyecto,
     detalleProyecto,
     efectosSecundarios,
-
     tipoEpilepsia,
     sintomas,
     preguntas,

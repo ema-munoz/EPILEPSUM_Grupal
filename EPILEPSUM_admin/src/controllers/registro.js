@@ -24,7 +24,7 @@ registro.vistaLogin = async(req, res) => {
 
 registro.login = passport.authenticate("local.signin", {
     successRedirect: "/proyecto/agregar/",
-    failureRedirect: "/Verificacion",
+    failureRedirect: "/",
     failureFlash: true
 })
 

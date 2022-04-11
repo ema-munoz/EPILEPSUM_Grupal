@@ -10,16 +10,17 @@ proyectoCtl.enseñar = async(req, res) => {
 }
 
 proyectoCtl.dirigir = async(req, res) => {
-    const id = req.user.idUsuario
+    const id = req.user.idusuario
     const ids = req.params.id
     const { nombreProyecto, objetivos, numero } = req.body
     const nuevoEnvio = {
         nombreProyecto,
-        usuarioIdUsuario: id
+        objetivos,
+        usuarioIdusuario: id
     }
     await orm.proyecto.create(nuevoEnvio)
     for (let i = 0; i < objetivos.length; i++) {
-        await sql.query('INSERT INTO detalleproyectos (objetivo, proyectoIdProyecto) VALUES(?, ?)', [objetivos[i], numero])
+        await sql.query('INSERT INTO proyectos (objetivo, proyectoIdProyecto) VALUES(?, ?)', [objetivos[i], numero])
     }
     req.flash('success', 'guardado')
     res.redirect('/proyecto/lista/' + id)
@@ -27,8 +28,8 @@ proyectoCtl.dirigir = async(req, res) => {
 
 proyectoCtl.lista = async(req, res) => {
     const ids = req.params.id
-    const lista = await ('select * from  proyectos where usuarioIdUsuario = ?', [ids])
-    const objetivos = await ('select * from detalleproyectos where proyectoIdProyecto')
+    const lista = await ('select * from  proyectos where usuarioIdusuario = ?', [ids])
+    const objetivos = await ('select * from detalleproyectos ') //where proyectoIdProyecto
     res.render('proyecto/listaProyecto', {
         lista,
         objetivos
@@ -45,10 +46,10 @@ proyectoCtl.eliminar = async(req, res) => {
 
 proyectoCtl.traer = async(req, res) => {
     const ids = req.params.id
-    const listas = await ('select * from  proyectos where idProyecto = ?', [ids])
+    const lista = await ('select * from  proyectos where idProyecto = ?', [ids])
     const objetivos = await ('select * from detalleproyectos where proyectoIdProyecto = ?', [ids])
-    res.render('proyecto/editarProyecto', {
-        listas,
+    res.render('proyecto/listaProyecto', {
+        lista,
         objetivos
     })
 }
@@ -58,7 +59,7 @@ proyectoCtl.actualizar = async(req, res) => {
     const { nombreProyecto, objetivos, numero } = req.body
     const nuevoEnvio = {
         nombreProyecto,
-        usuarioIdUsuario: id
+        usuarioIdusuario: id
     }
     await orm.proyecto.findOne({ where: { idProyecto: ids } })
         .then(actualizar => {
