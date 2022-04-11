@@ -17,7 +17,7 @@ tipoEpilepsiaCtl.enviar = async(req, res) => {
     }
     await baseDatosORM.tipoEpilepsia.create(nuevoEnvio)
     req.flash('success', 'guardado')
-    res.redirect('/efectosSecundarios/lista/' + id)
+    res.redirect('/tipoEpilepsia/lista/' + id)
     }
 
 
@@ -30,7 +30,7 @@ res.render('tipoEpilepsia/tipoEpilepsiaListas',{ lista})
 tipoEpilepsiaCtl.traer = async(req, res) => {
     const ids = req.params.id
     const lista = await  baseDatosSQL.query('select * from  tipoEpilepsia where usuarioIdusuario = ?', [ids])
-    res.render('efectosSecundarios/efectosSecundariosListas', { lista})
+    res.render('tipoEpilepsia/tipoEpilepsiaListas', { lista})
 
 }
 
@@ -43,7 +43,7 @@ tipoEpilepsiaCtl.actualizar = async(req, res) => {
         descripcionTipoEpilepsia
     
     }
-    await baseDatosORM.proyecto.findOne({ where: { idEfectosSecundarios: ids } })
+    await baseDatosORM.proyecto.findOne({ where: { idTipoEpilepsia: ids } })
     .then(actualizar => {
         actualizar.update(nuevoEnvio)
         req.flash("success","Datos Actulizados")
@@ -54,7 +54,7 @@ tipoEpilepsiaCtl.actualizar = async(req, res) => {
 tipoEpilepsiaCtl.eliminar = async(req, res) => {
     const id = req.params.id
     const ids = req.user.idusuario
-    await baseDatosORM.tipoEpilepsia.destroy({ where: { idEfectosSecundarios: id } })
+    await baseDatosORM.tipoEpilepsia.destroy({ where: {idTipoEpilepsia: id } })
     req.flash('success', 'eliminacion')
     res.redirect('/tipoEpilepsia/lista/' + ids)
 }
