@@ -64,6 +64,8 @@ app.use (require ("./routes/actualizacion"));
 app.use (require ("./routes/user"));
 app.use ('/proyecto', require('./routes/proyectoRutas'))
 app.use('/efectosSecundarios', require('./routes/efectosSecundariosRutas'))
+app.use('/tipoEpilepsia', require('./routes/tipoEpilepsiaRutas'))
+
 
 
 module.exports = app;
