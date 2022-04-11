@@ -65,6 +65,8 @@ app.use (require ("./routes/user"));
 app.use ('/proyecto', require('./routes/proyectoRutas'))
 app.use('/efectosSecundarios', require('./routes/efectosSecundariosRutas'))
 app.use('/tipoEpilepsia', require('./routes/tipoEpilepsiaRutas'))
+app.use('/sintomas', require('./routes/sintomasRutas'))
+
 
 
 
