@@ -32,7 +32,7 @@ res.render('efectosSecundarios/efectosSecundariosListas',{ lista})
 efectosSecundariosCtl.traer = async(req, res) => {
     const ids = req.params.id
     const lista = await  baseDatosSQL.query('select * from  efectosSecundarios where idEfectosSecundarios = ?', [ids])
-    res.render('efectosSecundarios/efectosSecundariosListas', { lista})
+    res.render('efectosSecundarios/efectosSecundariosEditar', { lista})
 
 }
 
@@ -45,7 +45,7 @@ efectosSecundariosCtl.actualizar = async(req, res) => {
         descripcionEfectosSecundarios
     
     }
-    await baseDatosORM.proyecto.findOne({ where: { idEfectosSecundarios: ids } })
+    await baseDatosORM.efectosSecundarios.findOne({ where: { idEfectosSecundarios: ids } })
     .then(actualizar => {
         actualizar.update(nuevoEnvio)
         req.flash("success","Datos Actulizados")
@@ -58,7 +58,7 @@ efectosSecundariosCtl.eliminar = async(req, res) => {
     const ids = req.user.idUsuario
     await baseDatosORM.efectosSecundarios.destroy({ where: { idEfectosSecundarios: id } })
     req.flash('success', 'eliminacion')
-    res.redirect('/efectosSecunhdarios/lista/' + ids)
+    res.redirect('/efectosSecundarios/lista/' + ids)
 }
 
 module.exports = efectosSecundariosCtl
