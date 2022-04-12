@@ -27,6 +27,24 @@ index.verificacion = async (req, res, done) => {
     } else {
         res.redirect('/Registro');
     }
+
+    const traerTiposEpilepsia = await sql.query("SELECT * FROM tipoEpilepsia")
+
+    if (traerTiposEpilepsia.length == 0) {
+        const tipoEpilepsia = traerTiposEpilepsia [0]
+
+        if (tipoEpilepsia === undefined) {
+            await sql.query("INSERT INTO tipoEpilepsia (nombreTipoEpilepsia) VALUES ('EPILEPSIA FOCAL')");
+
+            await sql.query("CREATE VIEW listaExperiencia as SELECT e.*, d.* FROM experiencias e join detallesexperiencias d ON  d.experienciaIdExperiencias = e.idExperiencias")
+
+            await sql.query("CREATE VIEW listaDudas as SELECT p.idPreguntas, p.pregunta, r.* FROM preguntas p join respuestas r ON  r.preguntaIdPreguntas = p.idPreguntas")
+
+            console.log("Guardado con éxito.")
+        }
+    } else {
+        console.log("Ya esta creado.")
+    }
 }
 
 module.exports = index;

@@ -36,8 +36,8 @@ const efectosSecundariosModels = require('../Model/efectosSecundarios')
 const sintomasModels = require('../Model/sintomas')
 const tipoEpilepsiaModels = require('../Model/tipoEpilepsia')
 
-const preguntasModels = require('../Model/preguntas')
-const respuestasModels = require('../Model/respuestas')
+const preguntasModels = require('../Model/preguntasModel')
+const respuestasModels = require('../Model/respuestasModel')
 const pacientesModels = require('../Model/paciente')
 
 const sequelize = new Sequelize(

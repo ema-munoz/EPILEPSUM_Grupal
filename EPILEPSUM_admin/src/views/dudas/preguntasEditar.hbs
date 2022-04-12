@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/dudas/preguntasEditar.css">
+
+<!--div-- id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</!--div-->
+
+<div id="contenedor">
+
+    {{#each enlistar}}
+    <form action="/dudas/preguntas/editar/{{idPreguntas}}" method="POST">
+        <div id="tarjeta">
+            <div id="titulo">
+                <label>
+                    <b>Pregunta:</b>
+                </label>
+            </div>
+
+            <div id="Pregunta">
+                <textarea type="text" name="pregunta" id="pregunta"required>{{pregunta}}</textarea>
+            </div>
+
+            <div id="boton">
+                <button type="submit" id="btn-agregar">
+                    Actualizar
+                </button>
+            </div>
+        </div>
+    </form>
+    {{/each}}
+</div>

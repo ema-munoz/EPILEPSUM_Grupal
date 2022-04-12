@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/css/dudas/preguntasAgregar.css">
+
+<!--div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</!--div-->
+
+<div id="contenedor">
+    <form action="/dudas/preguntas/agregar/{{user.idUsuario}}" method="post">
+        <div id="titulo">
+            <label>
+                Agregar Pregunta
+            </label>
+        </div>
+
+        <div id="Pregunta">
+            <label>
+                Pregunta:
+            </label>
+            <input type="text" name="pregunta" id="Pregunta" checked>
+        </div>
+
+        <div id="boton">
+            <button type="submit" id="btn-agregar">
+                Agregar
+            </button>
+        </div>
+    </form>
+</div>

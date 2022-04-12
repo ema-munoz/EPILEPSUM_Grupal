@@ -1,5 +1,6 @@
 PARTE DE CLIENTE:
 CRUD => medicamentos (proceso)
+CRUD => Usuario (mejorar)
 
 CRUD => principio activo del medicamento
 CRUD => peso y estatura
@@ -27,12 +28,14 @@ validaciones de input
 
 PARTE ADMINISTRATIVA (proceso)
 
+CRUD => Admin (mejorar)
+
 1. crear una tabla proyecto (pagina principal)
 2. CRUD => tabla de contenido de epilepsia(pagina principal)
 3. CRUD => efectos secundarios
 4. CRUD => tipo de epilepsia
 5. CRUD => sintomas
-6. CRUD => Experiencia
+6. CRUD => Experiencia (eliminacion)
 7. CRUD => consejos
 8. CRUD => preguntas
 9. CRUD => respuestas

@@ -29,7 +29,6 @@ index.verificacion = async (req, res, done) => {
         res.redirect('/Registro');
     }
 
-
     const traerDatosFamiliar = await sql.query("SELECT * FROM familiares")
 
     if (traerDatosFamiliar.length == 0) {
@@ -48,6 +47,8 @@ index.verificacion = async (req, res, done) => {
             await sql.query("INSERT INTO familiares (nombreFamiliar) VALUES ('PRIMA')");
 
             await sql.query("CREATE VIEW listaExperiencia as SELECT e.*, d.* FROM experiencias e join detallesexperiencias d ON  d.experienciaIdExperiencias = e.idExperiencias")
+
+            await sql.query("CREATE VIEW listaDudas as SELECT p.pregunta, r.* FROM preguntas p join respuestas r ON  r.preguntaIdPreguntas = p.idPreguntas")
 
             console.log("Guardado con éxito.")
         }

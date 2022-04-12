@@ -20,7 +20,8 @@ button{
     border-radius: 6px solid crimson;
 }
 
-a{
+#contenedor a,
+#contenido a{
     text-decoration: none;
 }
 
@@ -31,6 +32,7 @@ a{
     max-width: 100%;
     max-height: 90%;
     top: 10%;
+    opacity: 75%;
 }
 
 #fondo img{

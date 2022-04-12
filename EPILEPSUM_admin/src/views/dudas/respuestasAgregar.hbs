@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/dudas/respuestasAgregar.css">
+
+<!--div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</!--div-->
+
+<div id="contenedor">
+    <form action="/dudas/respuestas/agregar/{{user.idUsuario}}" method="post">
+        <div id="Titulo">
+            <label>
+                Agregar Respuesta
+            </label>
+        </div>
+
+        <div id="Pregunta">
+            <select name="pregunta" id="pregunta">
+                    {{#each enlistar}}
+                <option value="{{idPreguntas}}">{{pregunta}}</option>
+                    {{/each}}
+            </select>
+        </div>
+
+        <div id="Respuesta">
+            <label>
+                Respuesta:
+            </label>
+            <input type="text" id="numeros" name="numeros" placeholder="Ingrese su número de Respuestas" checked>
+        </div>
+
+        <div id="listaObjetivos"></div>
+
+        <div id="Unico">
+            <textarea name="unico" id="unico" maxlength="2500"></textarea>
+        </div>
+
+        <div id="boton">
+            <button type="button" onclick="objetivos.crear()">Crear Respuestas</button>
+        </div>
+        
+        <div id="guardar">
+            <button type="submit" id="btn-agregar">
+                Agregar
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/objetivos.js"></script>

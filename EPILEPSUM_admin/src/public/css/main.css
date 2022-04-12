@@ -20,7 +20,8 @@ button{
     border-radius: 6px solid crimson;
 }
 
-a{
+#contenedor a,
+#contenido a{
     text-decoration: none;
 }
 
@@ -38,6 +39,7 @@ a{
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    opacity: 75%;
 }
 
 body{
