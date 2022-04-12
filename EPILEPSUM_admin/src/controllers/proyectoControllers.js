@@ -3,16 +3,22 @@ const proyectoCtl = {}
 const orm = require('../Configuration/basededatos.orm');
 const sql = require('../Configuration/basededatos.sql');
 
-proyectoCtl.enseñar = async(req, res) => {
+proyectoCtl.enseñar = async (req, res) => {
     const id = req.user.idUsuario
     const proyecto = await sql.query('select * from proyectos where usuarioIdUsuario = ?', [id])
-    res.render('proyecto/agregarProyecto', { proyecto })
+    res.render('proyecto/agregarProyecto', {
+        proyecto
+    })
 }
 
-proyectoCtl.dirigir = async(req, res) => {
+proyectoCtl.dirigir = async (req, res) => {
     const id = req.user.idusuario
     const ids = req.params.id
-    const { nombreProyecto, objetivos, numero } = req.body
+    const {
+        nombreProyecto,
+        objetivos,
+        numero
+    } = req.body
     const nuevoEnvio = {
         nombreProyecto,
         objetivos,
@@ -26,7 +32,7 @@ proyectoCtl.dirigir = async(req, res) => {
     res.redirect('/proyecto/lista/' + id)
 }
 
-proyectoCtl.lista = async(req, res) => {
+proyectoCtl.lista = async (req, res) => {
     const ids = req.params.id
     const lista = await ('select * from  proyectos where usuarioIdusuario = ?', [ids])
     const objetivos = await ('select * from detalleproyectos ') //where proyectoIdProyecto
@@ -36,15 +42,23 @@ proyectoCtl.lista = async(req, res) => {
     })
 }
 
-proyectoCtl.eliminar = async(req, res) => {
+proyectoCtl.eliminar = async (req, res) => {
     const id = req.params.id
-    await orm.proyecto.destroy({ where: { idProyecto: id } })
-    await orm.detalleProyecto.destroy({ where: { proyectoIdProyecto: id } })
+    await orm.proyecto.destroy({
+        where: {
+            idProyecto: id
+        }
+    })
+    await orm.detalleProyecto.destroy({
+        where: {
+            proyectoIdProyecto: id
+        }
+    })
     req.flash('success', 'eliminacion')
     res.redirect('/proyecto/lista/' + id)
 }
 
-proyectoCtl.traer = async(req, res) => {
+proyectoCtl.traer = async (req, res) => {
     const ids = req.params.id
     const lista = await ('select * from  proyectos where idProyecto = ?', [ids])
     const objetivos = await ('select * from detalleproyectos where proyectoIdProyecto = ?', [ids])
@@ -54,14 +68,22 @@ proyectoCtl.traer = async(req, res) => {
     })
 }
 
-proyectoCtl.actualizar = async(req, res) => {
+proyectoCtl.actualizar = async (req, res) => {
     const ids = req.params.id
-    const { nombreProyecto, objetivos, numero } = req.body
+    const {
+        nombreProyecto,
+        objetivos,
+        numero
+    } = req.body
     const nuevoEnvio = {
         nombreProyecto,
         usuarioIdusuario: id
     }
-    await orm.proyecto.findOne({ where: { idProyecto: ids } })
+    await orm.proyecto.findOne({
+            where: {
+                idProyecto: ids
+            }
+        })
         .then(actualizar => {
             actualizar.update(nuevoEnvio)
         })
