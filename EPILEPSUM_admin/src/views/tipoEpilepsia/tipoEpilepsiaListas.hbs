@@ -1,10 +1,43 @@
-<form action="/tipoEpilepsia/lista/{{user.idUsuario}}" method="get"></form>
 <div id="contenido">
+   <div class="row">
       {{#each lista}}
-    <div id="nombre">
-       <label >{{nombreTipoEpilepsia}}</label> 
-    </div>
-    {{/each}}
+      <form action="/tipoEpilepsia/lista/{{idTipoEpilepsia}}" method="get"></form>
+      <div id="tarjeta">
+         <div id="nombre">
+            <label>{{tipoEpilepsia}}</label>
+         </div>
 
-   
+         <div id="Descripcion">
+            <label> Descripcion :</label>
+            <p> {{tipoEpilepsia}} </p>
+
+            <div id="botonEditar">
+               <button>
+                  <a href="/tipoEpilepsia/editar/{{idTipoEpilepsia}}">Editar</a>
+               </button>
+            </div>
+
+            <div id="botonEliminar">
+               <button>
+                  <a href="/tipoEpilepsia/eliminar/{{idTipoEpilepsia}}">Eliminar</a>
+               </button>
+            </div>
+         </div>
+
+         {{else}}
+         <div id="mensaje">
+            <p><b> No existe registro de tipo de Epilepsia. </b></p>
+            <a href="/tipoEpilepsia/agregar/{{user.idUsuario}}">
+               <button type="button">¿Desea registrar?</button>
+            </a>
+         </div>
+         {{/each}}
+      </div>
+   </div>
+</div>
+
+<div id="plus">
+   <a href="/tipoEpilepsia/agregar/{{user.idUsuario}}">
+      <button type="button"><img src="/img/usuarios/plus.png"></button>
+   </a>
 </div>

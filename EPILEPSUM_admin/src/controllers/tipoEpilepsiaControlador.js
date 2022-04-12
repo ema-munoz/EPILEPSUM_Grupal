@@ -30,7 +30,7 @@ res.render('tipoEpilepsia/tipoEpilepsiaListas',{ lista})
 tipoEpilepsiaCtl.traer = async(req, res) => {
     const ids = req.params.id
     const lista = await  baseDatosSQL.query('select * from  tipoEpilepsia where usuarioIdusuario = ?', [ids])
-    res.render('tipoEpilepsia/tipoEpilepsiaListas', { lista})
+    res.render('tipoEpilepsia/tipoEpilepsiaEditar', { lista})
 
 }
 

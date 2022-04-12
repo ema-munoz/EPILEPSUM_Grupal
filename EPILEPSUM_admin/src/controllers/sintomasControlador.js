@@ -31,7 +31,7 @@ res.render('sintomas/sintomasListas',{ lista})
 sintomasCtl.traer = async(req, res) => {
     const ids = req.params.id
     const lista = await baseDatosSQL.query('select * from  sintomas where usuarioIdusuario = ?', [ids])
-    res.render('sintomas/sintomasListas', { lista})
+    res.render('sintomas/sintomasEditar', { lista})
 
 }
 
