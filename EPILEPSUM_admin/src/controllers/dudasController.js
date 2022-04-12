@@ -137,7 +137,7 @@ dudas.eliminarRespuestas = async (req, res) => {
             idRespuesta: respuestaId
         }
     })
-    res.redirect("dudas/respuestasLista/" + id);
+    res.redirect("/dudas/respuestas/lista/" + id);
 }
 
 module.exports = dudas
