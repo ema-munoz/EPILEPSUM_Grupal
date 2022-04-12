@@ -111,16 +111,16 @@ dudas.editarRespuestas = async (req, res) => {
     const id = req.user.idUsuario
     const {
         respuestas,
-        pregunta
+        preguntas
     } = req.body
-    await baseDatosSQL.query("UPDATE respuestas set respuesta = ? WHERE idRespuesta = ?", [respuestas, respuestasId])
-            req.flash("success", "Datos Actulizados.")
-            res.redirect("/dudas/respuestas/lista/" + id);
+    await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE preguntaIdPreguntas = ? AND idRespuesta = ?", [respuestas, preguntas, respuestasId])
+    req.flash("success", "Datos Actulizados.")
+    res.redirect("/dudas/respuestas/lista/" + id);
 }
 
 dudas.eliminar = async (req, res) => {
     const preguntaId = req.params.id;
-    const id = req.user.idUsuario
+    const id = req.user.idUsuario 
     await baseDatosORM.preguntas.destroy({
         where: {
             idPreguntas: preguntaId
@@ -134,7 +134,7 @@ dudas.eliminarRespuestas = async (req, res) => {
     const id = req.user.idUsuario
     await baseDatosORM.respuestas.destroy({
         where: {
-            idRespuestas: respuestaId
+            idRespuesta: respuestaId
         }
     })
     res.redirect("dudas/respuestasLista/" + id);

@@ -5,22 +5,22 @@
 </div>
 
 <div id="contenedor">
-
     {{#each enlistar}}
     <form action="/dudas/respuestas/editar/{{idRespuesta}}" method="POST">
+        {{/each}}
         <div id="tarjeta">
             <div id="titulo">
                 <label>
                     Editar Respuesta
                 </label>
             </div>
-
+            {{#each enlistar}}
             <div id="Respuesta">
-                <textarea type="text" name="respuesta" id="respuesta" required>{{respuesta}}</textarea>
+                <textarea type="text" name="respuestas" id="respuesta" required>{{respuesta}}</textarea>
             </div>
             {{/each}}
             <div id="Pregunta">
-                <select name="pregunta" id="pregunta">
+                <select name="preguntas" id="pregunta">
                     {{#each traerPregunta}}
                     <option value="{{idPreguntas}}">{{pregunta}}</option>
                     {{/each}}
