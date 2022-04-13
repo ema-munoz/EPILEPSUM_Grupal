@@ -9,7 +9,7 @@ sintomasCtl.mostrar = async(req, res) => {
 }
 
 sintomasCtl.enviar = async(req, res) => {
-    const id = req.user.idusuario
+    const id = req.user.idUsuario
     const { nombreSintomas, descrpcionsintomas} = req.body
     const nuevoEnvio = {
         nombreSintomas,
@@ -30,7 +30,7 @@ res.render('sintomas/sintomasListas',{ lista})
 
 sintomasCtl.traer = async(req, res) => {
     const ids = req.params.id
-    const lista = await baseDatosSQL.query('select * from  sintomas where usuarioIdusuario = ?', [ids])
+    const lista = await baseDatosSQL.query('select * from  sintomas where idSintomas = ?', [ids])
     res.render('sintomas/sintomasEditar', { lista})
 
 }
@@ -54,7 +54,7 @@ sintomasCtl.actualizar = async(req, res) => {
 
 sintomasCtl.eliminar = async(req, res) => {
     const id = req.params.id
-    const ids = req.user.idusuario
+    const ids = req.user.idUsuario
     await baseDatosORM.sintomas.destroy({ where: { idSintomas: id } })
     req.flash('success', 'eliminacion')
     res.redirect('/sintomas/lista/' + ids)

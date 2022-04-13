@@ -1,5 +1,5 @@
 {{#each lista}} 
-<form action="/tipoEpilepsia/editar/{{user.idusuario}}" method="post">
+<form action="/tipoEpilepsia/editar/{{idTipoEpilepsia}}" method="post">
     <div id="contenido">
      
         <div id="Nombre">
@@ -10,8 +10,7 @@
       <label> Descripcion :</label>
         <textarea type="text" name="descripcionTipoEpilepsia" id="descripcion" maxlength="2500" required> {{descripcionTipoEpilepsia}} </textarea>
 
-          
-    
+
         <div id="boton">
             <button type="submit">Guardar</button>
         </div>

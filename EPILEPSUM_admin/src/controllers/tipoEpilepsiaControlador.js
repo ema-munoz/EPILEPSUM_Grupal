@@ -8,7 +8,7 @@ tipoEpilepsiaCtl.mostrar = async(req, res) => {
 }
 
 tipoEpilepsiaCtl.enviar = async(req, res) => {
-    const id = req.user.idusuario
+    const id = req.user.idUsuario
     const {  nombreTipoEpilepsia, descripcionTipoEpilepsia} = req.body
     const nuevoEnvio = {
         nombreTipoEpilepsia,
@@ -29,21 +29,21 @@ res.render('tipoEpilepsia/tipoEpilepsiaListas',{ lista})
 
 tipoEpilepsiaCtl.traer = async(req, res) => {
     const ids = req.params.id
-    const lista = await  baseDatosSQL.query('select * from  tipoEpilepsia where usuarioIdusuario = ?', [ids])
+    const lista = await  baseDatosSQL.query('select * from  tipoEpilepsia where idTipoEpilepsia = ?', [ids])
     res.render('tipoEpilepsia/tipoEpilepsiaEditar', { lista})
 
 }
 
 tipoEpilepsiaCtl.actualizar = async(req, res) => {
     const ids = req.params.id
-    const id = req.user.idusuario
+    const id = req.user.idUsuario
     const { nombreTipoEpilepsia,descripcionTipoEpilepsia } = req.body
     const nuevoEnvio = {
         nombreTipoEpilepsia,
         descripcionTipoEpilepsia
     
     }
-    await baseDatosORM.proyecto.findOne({ where: { idTipoEpilepsia: ids } })
+    await baseDatosORM.tipoEpilepsia.findOne({ where: { idTipoEpilepsia: ids } })
     .then(actualizar => {
         actualizar.update(nuevoEnvio)
         req.flash("success","Datos Actulizados")
@@ -53,7 +53,7 @@ tipoEpilepsiaCtl.actualizar = async(req, res) => {
 
 tipoEpilepsiaCtl.eliminar = async(req, res) => {
     const id = req.params.id
-    const ids = req.user.idusuario
+    const ids = req.user.idUsuario
     await baseDatosORM.tipoEpilepsia.destroy({ where: {idTipoEpilepsia: id } })
     req.flash('success', 'eliminacion')
     res.redirect('/tipoEpilepsia/lista/' + ids)

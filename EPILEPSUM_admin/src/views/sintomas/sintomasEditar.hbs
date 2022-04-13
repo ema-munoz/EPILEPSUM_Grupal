@@ -1,0 +1,17 @@
+<form action="/sintomas/editar/{{idSintomas}}" method="post">
+    <div id="contenido">
+     
+        <div id="Nombre">
+            <label>Sintomas:</label>
+            <input type="text" name="nombreSintomas" id="nombre" value="{{nombreSintomas}}">
+        </div>
+        
+    <div id="Descripcion"> 
+      <label> Descripcion :</label>
+        <textarea type="text" name="descrpcionsintomas" id="descripcion" maxlength="2500" required> {{descrpcionSintomas}} </textarea>
+    
+        <div id="boton">
+            <button type="submit">Guardar</button>
+        </div>
+    </div>
+</form>

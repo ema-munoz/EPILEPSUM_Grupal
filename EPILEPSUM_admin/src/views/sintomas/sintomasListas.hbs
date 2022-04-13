@@ -1,33 +1,33 @@
 <div id="contenido">
    <div class="row">
       {{#each lista}}
-      <form action="/tipoEpilepsia/lista/{{idTipoEpilepsia}}" method="get"></form>
+      <form action="/sintomas/lista/{{idSintomas}}" method="get"></form>
       <div id="tarjeta">
          <div id="nombre">
-            <label>{{nombreTipoEpilepsia}}</label>
+            <label>{{nombreSintomas}}</label>
          </div>
 
          <div id="Descripcion">
             <label> Descripcion :</label>
-            <p> {{descripcionTipoEpilepsia}} </p>
+            <p> {{descrpcionSintomas}} </p>
 
             <div id="botonEditar">
                <button>
-                  <a href="/tipoEpilepsia/editar/{{idTipoEpilepsia}}">Editar</a>
+                  <a href="/sintomas/editar/{{idSintomas}}">Editar</a>
                </button>
             </div>
 
             <div id="botonEliminar">
                <button>
-                  <a href="/tipoEpilepsia/eliminar/{{idTipoEpilepsia}}">Eliminar</a>
+                  <a href="/sintomas/eliminar/{{idSintomas}}">Eliminar</a>
                </button>
             </div>
          </div>
 
          {{else}}
          <div id="mensaje">
-            <p><b> No existe registro de tipo de Epilepsia. </b></p>
-            <a href="/tipoEpilepsia/agregar/{{user.idUsuario}}">
+            <p><b>No presenta ningun sintoma. </b></p>
+            <a href="/sintomas/agregar/{{user.idUsuario}}">
                <button type="button">¿Desea registrar?</button>
             </a>
          </div>
@@ -37,7 +37,8 @@
 </div>
 
 <div id="plus">
-   <a href="/tipoEpilepsia/agregar/{{user.idUsuario}}">
+   <a href="/sintomas/agregar/{{user.idUsuario}}">
       <button type="button"><img src="/img/usuarios/plus.png"></button>
    </a>
 </div>
+
