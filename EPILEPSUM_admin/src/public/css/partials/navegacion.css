@@ -25,37 +25,37 @@ nav {
 #Nombre {
     position: absolute;
     top: 30%;
-    left: 7%;
+    left: 8%;
 }
 
 #Control {
     position: absolute;
     top: 30%;
-    left: 16%;
+    left: 18%;
 }
 
 #Colaboracion {
     position: absolute;
     top: 30%;
-    left: 24%;
+    left: 26%;
 }
 
 #PrimerosAuxilios {
     position: absolute;
     top: 30%;
-    left: 32%;
+    left: 36%;
 }
 
 #Ubicacion {
     position: absolute;
     top: 30%;
-    left: 42%;
+    left: 48%;
 }
 
 #Contactos {
     position: absolute;
     top: 30%;
-    left: 50%;
+    left: 56%;
 }
 
 #Nombre a,
@@ -65,6 +65,7 @@ nav {
 #Ubicacion a,
 #Contactos a {
     color: black;
+    text-decoration: none;
 }
 
 
@@ -90,4 +91,3 @@ nav {
     width: 100%;
     font-size: 20px;
 }
-

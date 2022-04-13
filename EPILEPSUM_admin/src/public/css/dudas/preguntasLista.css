@@ -10,6 +10,10 @@
     text-align: center;
 }
 
+#fondo{
+    position: fixed;
+}
+
 #mensaje p{
     position: absolute;
     width: 70%;

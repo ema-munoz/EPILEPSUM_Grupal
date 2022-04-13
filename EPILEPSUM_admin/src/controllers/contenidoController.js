@@ -13,6 +13,7 @@ contenido.mostrar = async (req, res) => {
 contenido.agregar = async (req, res) => {
     const contenidoId = req.user.idUsuario;
     const {
+        contenidos,
         nombreContenido,
         descripcionDetalleContenido,
         /*imagenDetalleContenido,
@@ -26,7 +27,7 @@ contenido.agregar = async (req, res) => {
         descripcionDetalleContenido,
         /*imagenDetalleContenido,
         videoDetalleContenido*/
-        contenidoIdContenido: contenidoId
+        contenidoIdContenido: contenidos
     }
     await baseDatosORM.contenido.create(nuevoAgregamiento)
     await baseDatosORM.detalleContenido.create(nuevoContenido)
@@ -94,6 +95,11 @@ contenido.eliminar = async (req, res) => {
     await baseDatosORM.contenido.destroy({
         where: {
             idContenido: contenidoId
+        }
+    })
+    await baseDatosORM.detalleContenido.destroy({
+        where: {
+            contenidoIdContenido : contenidoId
         }
     })
     res.redirect("/contenido/lista/" + id);
