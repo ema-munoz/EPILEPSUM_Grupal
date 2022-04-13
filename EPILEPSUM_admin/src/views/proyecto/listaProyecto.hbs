@@ -1,14 +1,15 @@
 <form action="/proyecto/lista/{{user.idUsuario}}" method="get">
     <div id="contenido">
-        {{#each lista}}
+        {{#each proyecto}}
         <div id="nombre">
             <label>{{nombreProyecto}}</label>
         </div>
+        
         {{/each}}
         {{#each objetivos}}
         <div id="objetivos">
             <ul>
-                <li>{{objetivos}}</li>
+                <li>{{objetivoDetalleProyecto}}</li>
             </ul>
         </div>
         {{/each}}
