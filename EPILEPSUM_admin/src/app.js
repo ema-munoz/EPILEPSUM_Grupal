@@ -63,5 +63,6 @@ app.use (require ("./routes/actualizacion"));
 app.use (require ("./routes/user"));
 app.use ('/proyecto', require('./routes/proyectoRutas'))
 app.use ('/dudas', require('./routes/dudasRoute'))
+app.use ('/contenido', require('./routes/contenidoRoute'))
 
 module.exports = app;

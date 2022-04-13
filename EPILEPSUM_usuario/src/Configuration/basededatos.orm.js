@@ -36,9 +36,11 @@ const efectosSecundariosModels = require('../Model/efectosSecundarios')
 const sintomasModels = require('../Model/sintomas')
 const tipoEpilepsiaModels = require('../Model/tipoEpilepsia')
 
-const preguntasModels = require('../Model/preguntas')
-const respuestasModels = require('../Model/respuestas')
+const preguntasModels = require('../Model/preguntasModel')
+const respuestasModels = require('../Model/respuestasModel')
 const pacientesModels = require('../Model/paciente')
+const contenidoModels = require('../Model/contenidoModel')
+const detalleContenidoModels = require('../Model/detalleContenidoModel')
 
 const sequelize = new Sequelize(
   'epilepsum', 
@@ -94,6 +96,8 @@ sequelize.authenticate()
   const preguntas = preguntasModels(sequelize, Sequelize)
   const respuestas = respuestasModels(sequelize, Sequelize)
   const pacientes = pacientesModels(sequelize, Sequelize)
+  const contenido = contenidoModels(sequelize, Sequelize)
+  const detalleContenido = detalleContenidoModels(sequelize, Sequelize)
 
   usuario.hasMany(efectosSecundarios)
   efectosSecundarios.belongsTo(usuario)
@@ -167,6 +171,12 @@ sequelize.authenticate()
   pacientes.hasMany(consejo)
   consejo.belongsTo(pacientes)
 
+  usuario.hasMany(contenido)
+  contenido.belongsTo(usuario)
+
+  contenido.hasMany(detalleContenido)
+  detalleContenido.belongsTo(contenido)
+
 module.exports = {
     usuario,
     medicacion,
@@ -191,5 +201,7 @@ module.exports = {
     sintomas,
     preguntas,
     respuestas,
-    pacientes
+    pacientes,
+    contenido,
+    detalleContenido
   }

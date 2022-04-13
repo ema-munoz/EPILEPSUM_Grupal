@@ -23,27 +23,28 @@
             </div>
 
             <div id="botonEditar">
-
                 <a href="/dudas/respuestas/editar/{{idRespuesta}}">
                     <button>Editar</button>
                 </a>
-
             </div>
 
             <div id="botonEliminar">
-
                 <a href="/dudas/respuestas/eliminar/{{idRespuesta}}">
                     <button>Eliminar</button>
                 </a>
-
             </div>
         </div>
 
         {{else}}
         <div id="mensaje">
-            <p><b>Usted no tiene registrado ninguna respuesta. </b></p>
+            <p>
+                <b>Usted no tiene registrado ninguna respuesta.</b>
+            </p>
+
             <a href="/dudas/respuestas/agregar/{{user.idUsuario}}">
-                <button type="button">¿Desea registrar?</button>
+                <button type="button">
+                    ¿Desea registrar?
+                </button>
             </a>
         </div>
         {{/each}}

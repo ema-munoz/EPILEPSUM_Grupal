@@ -7,6 +7,7 @@ const contactosEmergencia = (sequelize, type) => {
         },
 
         nombreContactosEmergencia: type.STRING,
+        familiarContactosEmergencia: type.STRING,
         telefonoContactosEmergencia: type.INTEGER,
         celularContactosEmergencia: type.INTEGER,
         crecionContactosEmergencia:{
