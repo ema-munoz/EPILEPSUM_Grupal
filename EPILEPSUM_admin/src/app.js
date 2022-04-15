@@ -8,6 +8,8 @@ const flash = require('connect-flash');
 const mysqlstore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const http = require('http');
+const fileUpload = require('express-fileupload');
+
 
 const { database } = require('./key');
 
@@ -28,6 +30,8 @@ app.set('view engine', '.hbs');
 /// archivos compartidos
 
 //midlewars
+app.use(fileUpload());
+
 app.use(morgan('dev'));
 
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -55,6 +59,8 @@ app.use((req, res, next) => {
 
 //public
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/img/image-experence')));
+
 //public
 
 //routes
@@ -62,6 +68,10 @@ app.use (require("./routes/index"));
 app.use (require ("./routes/registro"));
 app.use (require ("./routes/actualizacion"));
 app.use (require ("./routes/user"));
+app.use (require ("./routes/experence.route"));
+app.use (require ("./routes/councils.route"));
+
+
 app.use ('/proyecto', require('./routes/proyectoRutas'))
 app.use('/efectosSecundarios', require('./routes/efectosSecundariosRutas'))
 app.use('/tipoEpilepsia', require('./routes/tipoEpilepsiaRutas'))

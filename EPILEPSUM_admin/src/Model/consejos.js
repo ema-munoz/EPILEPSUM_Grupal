@@ -1,6 +1,6 @@
 const consejos = (sequelize, type) => {
     return sequelize.define('consejos', {
-        idConsejo: {
+        id: {
             type: type.INTEGER,
             primaryKey: true,
             autoIncrement: true,
@@ -8,6 +8,7 @@ const consejos = (sequelize, type) => {
         nombreConsejo: type.STRING,
         imagenConsejo: type.STRING,
         videoConsejo: type.STRING,
+        descripcionConsejo: type.STRING,
         creacionConsejo: {
             type: 'TIMESTAMP',
             defaultValue: type.literal('CURRENT_TIMESTAMP'),
