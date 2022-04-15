@@ -18,7 +18,7 @@ councilsCtl.add = async (req, res) => {
     descripcionConsejo
     
   };
-  console.log(newCouncil);
+  //console.log(newCouncil);
   await pool.query('INSERT INTO consejos set ?', [newCouncil]);
   req.flash('success', 'se agrego un consejo');
   res.redirect('/list-councils');
@@ -30,7 +30,7 @@ councilsCtl.delete = async (req, res) => {
 
   req.flash('success', 'Experiencia borrado correctamente');
 
-  res.redirect('/llist-councils');
+  res.redirect('/list-councils');
 };
 
 module.exports = councilsCtl;
