@@ -12,10 +12,9 @@
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 75%;
 }
 
-#img{
+#logo{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -25,7 +24,7 @@
     top: -18%;
 }
 
-#img img{
+#logo img{
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
@@ -66,7 +65,7 @@
     width: 80%;
 }
 
-#Nombre{
+#Nombres{
     position: absolute;
     top: 20%;
     left: 10%;
@@ -121,7 +120,7 @@
     transition: all .5s ease;
 }
 
-#Nombre input,
+#Nombres input,
 #Apellido input{
     text-transform: uppercase;
 }
