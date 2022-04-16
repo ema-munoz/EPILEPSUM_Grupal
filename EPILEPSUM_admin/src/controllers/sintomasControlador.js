@@ -10,10 +10,10 @@ sintomasCtl.mostrar = async(req, res) => {
 
 sintomasCtl.enviar = async(req, res) => {
     const id = req.user.idUsuario
-    const { nombreSintomas, descrpcionsintomas} = req.body
+    const { nombreSintomas, descrpcionSintomas} = req.body
     const nuevoEnvio = {
         nombreSintomas,
-        descrpcionsintomas,
+        descrpcionSintomas,
         usuarioIdusuario: id  
     }
     await baseDatosORM.sintomas.create(nuevoEnvio)
@@ -37,14 +37,14 @@ sintomasCtl.traer = async(req, res) => {
 
 sintomasCtl.actualizar = async(req, res) => {
     const ids = req.params.id
-    const id = req.user.idusuario
-    const {  nombreSintomas,descrpcionsintomas } = req.body
+    const id = req.user.idUsuario
+    const {  nombreSintomas,descrpcionSintomas } = req.body
     const nuevoEnvio = {
         nombreSintomas,
-        descrpcionsintomas
+        descrpcionSintomas,
     
     }
-    await baseDatosORM.proyecto.findOne({ where: { idSintomas: ids } })
+    await baseDatosORM.sintomas.findOne({ where: { idSintomas: ids } })
     .then(actualizar => {
         actualizar.update(nuevoEnvio)
         req.flash("success","Datos Actulizados")
