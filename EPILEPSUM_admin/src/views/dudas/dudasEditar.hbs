@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/dudasEditar.css">
 
-<div id="fondo">
+<!--div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png">
-</div>
+</!--div-->
 
 <div id="contenedor">
 
     {{#each enlistar}}
-    <form action="/dudas/editar/{{idPreguntas}}" method="POST">
+    <form action="/dudas/editar/{{idPreguntas}}" method="POST" enctype="multipart/form-data">
         <div id="tarjeta">
             <div id="titulo">
                 <label>
@@ -18,7 +18,21 @@
             <div id="Pregunta">
                 <textarea type="text" name="pregunta" id="pregunta" required>{{pregunta}}</textarea>
             </div>
+
+            <div id="imagenBaseDatos">
+                <label>
+                    Imágenes de la Pregunta:
+                </label>
+                <img src="/img/dudas/{{imagenPreguntas}}">
+            </div>
             {{/each}}
+
+            <div id="imagen">
+                <label>
+                    Imágenes a Cambiar:
+                </label>
+                <input type="file" name="imagenPreguntas" id="imagen">
+            </div>
 
             <div id="objetivosEliminar">
                 <label>Respuesta:</label>
@@ -41,7 +55,7 @@
 
             <div id="listaObjetivos"></div>
 
-             <div id="Unico">
+            <div id="Unico">
                 <textarea name="unico" id="unico" maxlength="2500"></textarea>
             </div>
 
@@ -57,4 +71,3 @@
 </div>
 
 <script src="/js/objetivos2.js"></script>
-

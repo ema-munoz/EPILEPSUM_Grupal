@@ -8,6 +8,7 @@ const flash = require('connect-flash');
 const mysqlstore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const http = require('http');
+const fileUpload = require("express-fileupload");
 
 const { database } = require('./key');
 
@@ -27,6 +28,7 @@ app.set('view engine', '.hbs');
 /// archivos compartidos
 
 //midlewars
+app.use(fileUpload());
 app.use(morgan('dev'));
 
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -43,7 +45,6 @@ app.use(passport.session());
 //midlewars
 
 //varible globales 
-
 app.use((req, res, next) => {
     app.locals.menssage = req.flash('menssage');
     app.locals.success = req.flash('success');

@@ -38,7 +38,7 @@ index.verificacion = async (req, res, done) => {
 
             await sql.query("CREATE VIEW listaExperiencia as SELECT e.*, d.* FROM experiencias e join detallesexperiencias d ON  d.experienciaIdExperiencias = e.idExperiencias")
 
-            await sql.query("CREATE VIEW listaDudas as SELECT p.idPreguntas, p.pregunta, r.* FROM preguntas p join respuestas r ON  r.preguntaIdPreguntas = p.idPreguntas")
+            await sql.query("CREATE VIEW listaDudas as SELECT p.idPreguntas, p.pregunta, p.imagenPreguntas, p.videoPreguntas, r.* FROM preguntas p join respuestas r ON  r.preguntaIdPreguntas = p.idPreguntas")
 
             await sql.query("CREATE VIEW listaContenido as SELECT c.*, dc.* FROM contenidos c join detalleContenidos dc ON  dc.contenidoIdContenido = c.idContenido;")
 

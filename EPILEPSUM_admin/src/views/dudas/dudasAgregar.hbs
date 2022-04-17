@@ -5,12 +5,12 @@
 </!--div-->
 
 <div id="contenedor">
-    <form action="/dudas/agregar/{{user.idUsuario}}" method="post">
+    <form action="/dudas/agregar/{{user.idUsuario}}" method="post" enctype="multipart/form-data">
         <div id="titulo">
             <label>
                 {{#each idMax}}
                 Agregar N:
-                <input type="text" name="preguntas" id="numero" value="{{'MAX(idPreguntas)'}}">
+                <input type="text" name="IdPreguntas" id="numero" value="{{'MAX(idPreguntas)'}}">
                 {{/each}}
             </label>
         </div>
@@ -20,6 +20,13 @@
                 Pregunta:
             </label>
             <input type="text" name="pregunta" id="pregunta" checked>
+        </div>
+
+        <div id="imagen">
+            <label>
+                Imágenes de la Pregunta:
+            </label>
+            <input type="file" name="imagenPreguntas" id="imagen">
         </div>
 
         <div id="objetivos">
@@ -35,13 +42,6 @@
 
         <div id="boton">
             <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
-        </div>
-
-        <div id="Respuesta">
-            <label>
-                Respuesta:
-            </label>
-            <input type="text" name="respuesta" id="respuesta" checked>
         </div>
 
         <div id="Guardar">
