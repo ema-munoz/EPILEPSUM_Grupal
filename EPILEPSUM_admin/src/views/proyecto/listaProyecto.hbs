@@ -1,19 +1,29 @@
-<form action="/proyecto/lista/{{user.idUsuario}}" method="get">
-    <div id="contenido">
-        {{#each proyecto}}
-        <div id="nombre">
-            <label>{{nombreProyecto}}</label>
-        </div>
-        
-        {{/each}}
-        {{#each objetivos}}
-        <div id="objetivos">
-            <ul>
-                <li>{{objetivoDetalleProyecto}}</li>
-            </ul>
-        </div>
-        {{/each}}
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/CSS/proyecto/listaProyecto.css">
+
+<div id="fondo">
+    <img src="/img/fondos/Fondo.jpg" alt="Logo">
+</div> 
+
+<div id="contenedor">
+    <div id="formulario">
+        <form action="/proyecto/lista/{{user.idUsuario}}" method="get">
+            <div id="contenido">
+                {{#each proyecto}}
+                <div id="nombre">
+                    <label>{{nombreProyecto}}</label>
+                </div>
+                {{/each}}
+                {{#each objetivos}}
+                <div id="objetivos">
+                    <ul>
+                        <li>{{objetivoDetalleProyecto}}</li>
+                    </ul>
+                </div>
+                {{/each}}
+            </div>
+        </form>
     </div>
-</form>
+</div>
 <script src="/js/numero.js"></script>
 <script src="/js/objetivos.js"></script>
