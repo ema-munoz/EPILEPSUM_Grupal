@@ -9,7 +9,6 @@ const mysqlstore = require('express-mysql-session')(session);
 const bodyparser = require('body-parser');
 const http = require('http');
 
-
 const {database} = require('./key');
 
 
