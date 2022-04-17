@@ -38,7 +38,7 @@ dudas.agregar = async (req, res) => {
         req.flash ("menssage", "Imagen no insertada.")
     }
 
-    const ubicacion = __dirname + "/../public/img/dudas/" + imagen.name;
+    const ubicacion = __dirname + "/../public/img/dudas/Preguntas/" + imagen.name;
 
     imagen.mv(ubicacion, function (err) {
         if (err) {
@@ -126,7 +126,7 @@ dudas.editar = async (req, res) => {
                 req.flash ("menssage", "Imagen no insertada.")
             }
         
-            const ubicacion = __dirname + "/../public/img/dudas/" + imagen.name;
+            const ubicacion = __dirname + "/../public/img/dudas/Preguntas/" + imagen.name;
         
             imagen.mv(ubicacion, function (err) {
                 if (err) {
