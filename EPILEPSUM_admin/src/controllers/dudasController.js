@@ -82,7 +82,7 @@ dudas.detalle = async (req, res) => {
 dudas.traer = async (req, res) => {
     const preguntasId = req.params.id;
     const enlistar = await baseDatosSQL.query("SELECT DISTINCT idPreguntas, pregunta, imagenPreguntas, videoPreguntas FROM listaDudas WHERE idPreguntas = ?", [preguntasId])
-    const enlistar1 = await baseDatosSQL.query("SELECT DISTINCT respuesta FROM listaDudas WHERE preguntaIdPreguntas = ?", [preguntasId])
+    const enlistar1 = await baseDatosSQL.query("SELECT DISTINCT idRespuesta, respuesta FROM listaDudas WHERE preguntaIdPreguntas = ?", [preguntasId])
     res.render("dudas/dudasEditar", {
         enlistar,
         enlistar1
@@ -99,7 +99,8 @@ dudas.editar = async (req, res) => {
         preguntas,
         objetivos1,
         unico,
-        numeros
+        numeros,
+        nrespuesta
     } = req.body
     const actualizacion = {
         pregunta
@@ -119,11 +120,11 @@ dudas.editar = async (req, res) => {
             const extesionImagen = [".png", ".jpg", ".jpeg", ".gif", ".tif"];
         
             if (!extesionImagen.includes(validacionImagen)) {
-                req.flash ("menssage", "Imagen no compatible.")
+                req.flash ("success", "Imagen no compatible.")
             }
         
             if (!req.files) {
-                req.flash ("menssage", "Imagen no insertada.")
+                req.flash ("success", "Imagen no insertada.")
             }
         
             const ubicacion = __dirname + "/../public/img/dudas/Preguntas/" + imagen.name;
@@ -139,7 +140,7 @@ dudas.editar = async (req, res) => {
     
 
     if (respuestas.length > 10) {
-        await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE preguntaIdPreguntas = ? AND idRespuesta = ?", [respuestas, preguntas, respuestasId])
+        await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE preguntaIdPreguntas = ? AND idRespuesta = ?", [respuestas, preguntas, nrespuesta])
 
         if (parseInt(numeros) === 1) {
             await baseDatosSQL.query('INSERT INTO respuestas(respuesta, preguntaIdPreguntas, usuarioIdUsuario) VALUES (?,?,?)', [unico, respuestasId, id])
@@ -147,7 +148,7 @@ dudas.editar = async (req, res) => {
             res.redirect("/dudas/lista/" + respuestasId);
         }
 
-        if (parseInt(numeros) > 1) {
+        if (parseInt(numeros) > 1) { 
             for (let j = 0; j < objetivos1.length; j++) {
                 await baseDatosSQL.query('INSERT INTO respuestas(respuesta, preguntaIdPreguntas, usuarioIdUsuario) VALUES (?,?,?)', [objetivos1[j], respuestasId, id])
             }
@@ -157,7 +158,7 @@ dudas.editar = async (req, res) => {
         }
 
         if (numeros === "") {
-            await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE idRespuesta = ?", [respuestas, parseInt(respuestasId)])
+            await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE idRespuesta = ?", [respuestas, parseInt(nrespuesta)])
             console.log("No hay nuevas respuestas")
             req.flash("success", "Datos Actualizados.");
             res.redirect("/dudas/detalle/" + respuestasId);
@@ -166,7 +167,7 @@ dudas.editar = async (req, res) => {
 
     if (respuestas.length < 10) {
         for (let i = 0; i < respuestas.length; i++) {
-            await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE preguntaIdPreguntas = ? AND idRespuesta = ?", [respuestas[i], preguntas, (parseInt(respuestasId) + i)])
+            await baseDatosSQL.query("UPDATE respuestas SET respuesta = ? WHERE preguntaIdPreguntas = ? AND idRespuesta = ?", [respuestas[i], preguntas, (parseInt(nrespuesta) + i)])
         }
 
         if (parseInt(numeros) > 1) {
