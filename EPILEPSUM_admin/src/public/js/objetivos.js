@@ -3,7 +3,6 @@ class objetivo {
         this.contenedor = document.getElementById('listaObjetivos')
         this.numero = document.getElementById('numeros')
         this.unico = document.getElementById('Unico')
-
     }
     crear() {
         if (parseInt(this.numero.value) === 1) {

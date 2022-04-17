@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/dudasAgregar.css">
+
+<!--div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</!--div-->
+
+<div id="contenedor">
+    <form action="/dudas/agregar/{{user.idUsuario}}" method="post">
+        <div id="titulo">
+            <label>
+                {{#each idMax}}
+                Agregar N:
+                <input type="text" name="preguntas" id="numero" value="{{'MAX(idPreguntas)'}}">
+                {{/each}}
+            </label>
+        </div>
+
+        <div id="Pregunta">
+            <label>
+                Pregunta:
+            </label>
+            <input type="text" name="pregunta" id="pregunta" checked>
+        </div>
+
+        <div id="objetivos">
+            <label>Objetivos:</label>
+            <input type="text" id="numeros" name="numeros" placeholder="Ingrese su número de objetivos" checked>
+        </div>
+
+        <div id="listaObjetivos"></div>
+
+         <div id="Unico">
+            <textarea name="unico" id="unico" maxlength="2500"></textarea>
+        </div>
+
+        <div id="boton">
+            <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
+        </div>
+
+        <div id="Respuesta">
+            <label>
+                Respuesta:
+            </label>
+            <input type="text" name="respuesta" id="respuesta" checked>
+        </div>
+
+        <div id="Guardar">
+            <button type="submit" id="btn-agregar">
+                Agregar
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

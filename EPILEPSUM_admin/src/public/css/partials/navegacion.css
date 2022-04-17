@@ -28,13 +28,13 @@ nav {
     left: 8%;
 }
 
-#Control {
+#Contenido {
     position: absolute;
     top: 30%;
     left: 18%;
 }
 
-#Colaboracion {
+#Dudas {
     position: absolute;
     top: 30%;
     left: 26%;
@@ -59,8 +59,8 @@ nav {
 }
 
 #Nombre a,
-#Control a,
-#Colaboracion a,
+#Contenido a,
+#Dudas a,
 #PrimerosAuxilios a,
 #Ubicacion a,
 #Contactos a {

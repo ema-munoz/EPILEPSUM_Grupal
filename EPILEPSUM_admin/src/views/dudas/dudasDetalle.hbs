@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/css/dudas/dudasLista.css">
+
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</div>
+
+<form action="/dudas/detalle/{{user.idUsuario}}" method="GET"></form>
+<div id="contenedor">
+        {{#each enlistar}}
+            <div id="titulo">
+                <label>
+                    <b>{{pregunta}}</b>
+                </label>
+            </div>
+            {{/each}}
+
+            {{#each enlistar1}}
+            <div id="Respuesta">
+                <label>
+                    <p>{{respuesta}}</p>
+                </label>
+                
+            </div>
+            {{/each}}
+
+            {{#each enlistar}}
+            <div id="botonEditar">
+                <button>
+                    <a href="/dudas/editar/{{idPreguntas}}">Editar</a>
+                </button>
+            </div>
+    {{/each}}
+</div>

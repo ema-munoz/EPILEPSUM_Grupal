@@ -6,11 +6,13 @@
 -->
 <div id="contenedor">
     <form action="/contenido/agregar/{{user.idUsuario}}" method="POST">
-        <div id="titulo">{{#each idMax}}
+        <div id="titulo">
+            {{#each idMax}}
             <label>
                 Agregar Contenido N:
                 <input type="text" name="contenidos" id="numero" value="{{'MAX(idContenido)'}}">
-            </label>{{/each}}
+            </label>
+            {{/each}}
         </div>
 
         <div>

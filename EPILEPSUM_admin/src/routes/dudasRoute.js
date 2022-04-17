@@ -1,36 +1,34 @@
 const express = require('express');
 
-const routes = express.Router() 
+const routes = express.Router()
 
 const {Ingreso} = require("../lib/auth");
 
-const {mostrar, agregar, lista, traerDatos, editar, eliminar, mostrarRespuestas, agregarRespuestas, listaRespuestas, eliminarRespuestas, traerRespuestas, editarRespuestas, traerPreguntas} = require("../Controllers/dudasController");
+const {mostrar,
+    agregar,
+    lista,
+    traer,
+    detalle,
+    editar,
+    eliminarDuda,
+    eliminarRespuesta} = require("../Controllers/dudasController");
 
 routes.use (Ingreso)
 
-routes.get ("/preguntas/agregar/:id", Ingreso, mostrar)
+routes.get ("/agregar/:id", Ingreso, mostrar)
 
-routes.post ("/preguntas/agregar/:id", Ingreso, agregar)
+routes.post ("/agregar/:id", Ingreso, agregar)
 
-routes.get ("/preguntas/lista/:id", Ingreso, lista)
+routes.get ("/lista/:id", Ingreso, lista)
 
-routes.get ("/preguntas/editar/:id", Ingreso, traerPreguntas)
+routes.get ("/detalle/:id", Ingreso, detalle)
 
-routes.post ("/preguntas/editar/:id", Ingreso, editar)
+routes.get ("/editar/:id", Ingreso, traer)
 
-routes.get ("/preguntas/eliminar/:id", Ingreso, eliminar)
+routes.post ("/editar/:id", Ingreso, editar)
 
+routes.get ("/eliminar/:id", Ingreso, eliminarDuda)
 
-routes.get ("/respuestas/agregar/:id", Ingreso, mostrarRespuestas)
-
-routes.post ("/respuestas/agregar/:id", Ingreso, agregarRespuestas)
-
-routes.get ("/respuestas/lista/:id", Ingreso, listaRespuestas)
-
-routes.get ("/respuestas/editar/:id", Ingreso, traerRespuestas)
-
-routes.post ("/respuestas/editar/:id", Ingreso, editarRespuestas)
-
-routes.get ("/respuestas/eliminar/:id", Ingreso, eliminarRespuestas)
+routes.get ("/eliminarRespuesta/:id", Ingreso, eliminarRespuesta)
 
 module.exports = routes

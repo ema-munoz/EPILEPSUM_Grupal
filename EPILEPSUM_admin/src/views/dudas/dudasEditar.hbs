@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/css/dudasEditar.css">
+
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</div>
+
+<div id="contenedor">
+
+    {{#each enlistar}}
+    <form action="/dudas/editar/{{idPreguntas}}" method="POST">
+        <div id="tarjeta">
+            <div id="titulo">
+                <label>
+                    <b>Editar:</b>
+                </label>
+            </div>
+
+            <div id="Pregunta">
+                <textarea type="text" name="pregunta" id="pregunta" required>{{pregunta}}</textarea>
+            </div>
+            {{/each}}
+
+            <div id="objetivosEliminar">
+                <label>Respuesta:</label>
+                {{#each enlistar1}}
+                <textarea type="text" id="quitar" name="respuestas" checked>{{respuesta}}</textarea>
+
+                <div id="botonEliminar">
+                    <button>
+                        <a href="/dudas/eliminarRespuesta/{{idPreguntas}}">Eliminar</a>
+                    </button>
+                </div>
+
+                {{/each}}
+            </div>
+
+            <div id="objetivos">
+                <label>Desea añadir otra respuesta?:</label>
+                <input type="text" id="numeros" name="numeros" placeholder="Ingrese su número de respuestas" checked>
+            </div>
+
+            <div id="listaObjetivos"></div>
+
+             <div id="Unico">
+                <textarea name="unico" id="unico" maxlength="2500"></textarea>
+            </div>
+
+            <div id="boton">
+                <button type="button" onclick="objetivo1.crear()">Objetivos</button>
+            </div>
+
+            <div id="Guardar">
+                <button type="submit">Actualizar</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="/js/objetivos2.js"></script>
+
