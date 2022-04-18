@@ -1,132 +1,86 @@
-{{!-- <div class="container p-4">
-    <div class="col-md-12" style="margin-bottom: 5px; ">
-        <div class="card text-center row" style="border: 1px solid rgb(255, 119, 0)">
-            <div>
-                <h3 class="card-title text-uppercase" style="color: rgb(253, 103, 44);">
-                    Experiencias
-                </h3>
-            </div>
-            <div class="m-2">
-                <a href="/add-experence" class="btn btn-primary">Agregar Una Experiencia</a>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        {{#each experences}}
-        <div class="col-md-3 m-2 mx-auto  ">
-            <div class="card" style="border: 1px solid rgb(255, 119, 0);">
-
-                <div class="card-body">
-                    {{#if imagenExperiencia}}
-                    <img src="/{{imagenExperiencia}}" class="card-img-top" alt="..." style="height: 230px;">
-                    {{else}}
-                    <img src="/img/image-experence/not-found/not-found.jpg" class="card-img-top" style="height: 230px;"
-                        alt="...">
-                    {{/if}}
-                    <p class="m-2">Nombre Experiencia: {{nombreExperiencia}}</p>
-                    <p class="m-2">Video Experiencia: {{videoExperiencia}}</p>
-                    <form action="/image-experence/{{id}}" method="POST" encType="multipart/form-data">
-                        <div class="modal_container">
-
-                            <div class="drag-area">
-                                <p>Agregar foto:</p>
-                                <input type="file" name="sampleFile" accept="image/*" style="width: 152px;" />
-                                <input class="btn btn-primary m-2" type="submit">
-                            </div>
-                        </div>
-                    </form>
-
-                    <a class="btn btn-danger m-2" style="background-color: rgb(226, 93, 4);" href="/delete/{{id}}">
-                        <i class="fa-solid fa-trash-can"></i>
-                        Delete
-                    </a>
-                    <a class="btn btn-secondary m-2" href="/edit/{{id}}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        Edit
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        {{else}}
-        <div class="col-md-4 mx-auto">
-            <div class="card card-body text-center" style="border: 1px solid rgb(255, 119, 0);">
-                <p>No tienes experiencias agregadas.</p>
-                <a href="/add-experence">crea uno!</a>
-            </div>
-        </div>
-        {{/each}}
-
-
-    </div>
-</div> --}}
-
-<link rel="stylesheet" href="/css/experence.css">
+<link rel="stylesheet" href="/css/my/experence.css" />
 <center>
-    <div style=" border-bottom: 2px solid rgb(255, 85, 0); margin-top:5%; border-radius:5%;width:50%;">
-        <h5 style="color: rgb(255, 89, 0);">EXPERIENCIAS <a href="/add-experence"
-                style="background-color: rgb(0, 72, 255); color:aliceblue;border-radius:5%; "> Agregar Una
-                Experiencia</a>
-        </h5>
-    </div>
+  <div id="head">
+    <h5 id="h5">EXPERIENCIAS
+      <a id="a" href="/add-experence"> Agregar Una Experiencia</a>
+    </h5>
+  </div>
 </center>
 {{#each experences}}
 
-<center>
-    <ul class="cards">
-        <li>
-            <div class="card">
-                {{#if imagenExperiencia}}
-                <img src="/{{imagenExperiencia}}" class="card__image" alt=""/>
-                {{else}}
-                <img src="/img/image-experence/not-found/not-found.jpg" class="card__image" alt="" />
+  <center>
+    <ul id="cards">
+      <li>
+        <div id="card">
+          {{#if imagenExperiencia}}
+            <img src="/{{imagenExperiencia}}" id="card__image" alt="" />
+          {{else}}
+            <img
+              src="/img/image-experence/not-found/not-found.jpg"
+              id="card__image"
+              alt=""
+            />
 
-                {{/if}}
-                <div class="card__overlay">
-                    <div class="card__header">
-                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
-                            <path />
-                        </svg>
-                        <div class="card__header-text">
-                            <h3 class="card__title"> Nombre Experiencia: {{nombreExperiencia}}</h3>
-                            <span class="card__status">Video Experiencia:{{videoExperiencia}}</span>
-                        </div>
-                    </div>
-                    <p class="card__description">Descripción: {{descripcionExperiencia}}</p>
-                    <form action="/image-experence/{{id}}" method="POST" encType="multipart/form-data">
-                        <div class="modal_container">
-
-                            <div class="drag-area">
-                                <p>Agregar foto:</p>
-                                <input type="file" name="sampleFile" accept="image/*" />
-                                <input class="" type="submit">
-                            </div>
-                        </div>
-                    </form>
-                    <br>
-
-                    <a class="card__description" style="background-color: rgb(226, 93, 4);width: 40%;"
-                        href="/delete/{{id}}">
-                        <i class="fa-solid fa-trash-can"></i>
-                        Delete
-                    </a>
-                    <a class="card__description" style="width: 40%;" href="/edit/{{id}}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                        Edit
-                    </a>
-                </div>
+          {{/if}}
+          <div id="card__overlay">
+            <div id="card__header">
+              <svg id="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path></path>
+              </svg>
+              <div id="card__header-text">
+                <h3 id="card__title">
+                  Nombre Experiencia:
+                  {{nombreExperiencia}}</h3>
+                <span id="card__status">Video Experiencia:{{videoExperiencia}}</span>
+              </div>
             </div>
-        </li>
+            <p id="card__description">Descripción:
+              {{descripcionExperiencia}}</p>
+            <form
+              action="/image-experence/{{id}}"
+              method="POST"
+              encType="multipart/form-data"
+            >
+              <div id="modal_container">
+
+                <div id="drag-area">
+                  <p>Agregar foto:</p>
+                  <input type="file" name="sampleFile" accept="image/*" />
+                  <input type="submit" />
+                </div>
+              </div>
+            </form>
+            <br />
+
+            <a
+              id="card__description"
+              style="background-color: rgb(226, 93, 4);width: 40%;"
+              href="/delete/{{id}}"
+            >
+              <i class="fa-solid fa-trash-can"></i>
+              Delete
+            </a>
+            <a
+              id="card__description"
+              style="width: 40%;"
+              href="/edit/{{id}}"
+            >
+              <i class="fa-solid fa-pen-to-square"></i>
+              Edit
+            </a>
+          </div>
+        </div>
+      </li>
 
     </ul>
-</center>
+  </center>
 {{else}}
-<center>
-    <div style="padding-top: 5%; padding-bottom:5%; ">
-        <div class="card card-body text-center" style="border: 1px solid rgb(255, 119, 0);">
-            <p>No tienes experiencias agregadas.</p>
-            <a href="/add-experence">crea uno!</a>
-        </div>
+  <center>
+    <div id="padd">
+      <div id="card card-body text-center">
+        <p>No tienes experiencias agregadas.</p>
+        <a href="/add-experence">crea uno!</a>
+      </div>
     </div>
-</center>
+  </center>
 {{/each}}

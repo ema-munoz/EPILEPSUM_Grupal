@@ -12,7 +12,29 @@ body {
   background-color: #fef8f8;
 }
 
-.cards {
+#head {
+  border-bottom: 2px solid rgb(255, 85, 0);
+  margin-top: 5%;
+  border-radius: 5%;
+  width: 50%;
+}
+
+#h5 {
+  color: rgb(255, 89, 0);
+}
+
+#h5 #a {
+  background-color: #f08080;
+  color: aliceblue;
+  border-radius: 5%;
+}
+
+#padd {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+#cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -21,7 +43,7 @@ body {
   list-style-type: none;
 }
 
-.card {
+#card {
   position: relative;
   display: block;
   height: 100%;
@@ -32,12 +54,12 @@ body {
   border: #e85703 solid 1px;
 }
 
-.card__image {
+#card__image {
   width: 100%;
   height: 70%;
 }
 
-.card__overlay {
+#card__overlay {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -50,12 +72,12 @@ body {
   border: #e85703 solid 1px;
 }
 
-.card:hover .card__overlay {
+#card:hover #card__overlay {
   transform: translateY(0);
   border: #e85703 solid 1px;
 }
 
-.card__header {
+#card__header {
   position: relative;
   display: flex;
   align-items: center;
@@ -67,7 +89,7 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.card__arc {
+#card__arc {
   width: 80px;
   height: 80px;
   position: absolute;
@@ -76,29 +98,29 @@ body {
   z-index: 1;
 }
 
-.card__arc path {
+#card__arc path {
   fill: var(--surface-color);
-  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+  display: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }
 
-.card:hover .card__header {
+#card:hover .card__header {
   transform: translateY(0);
 }
 
-.card__thumb {
+#card__thumb {
   flex-shrink: 0;
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.card__title {
+#card__title {
   font-size: 1em;
   margin: 0 0 0.3em;
   color: #6a515e;
 }
 
-.card__tagline {
+#card__tagline {
   display: block;
   margin: 1em 0;
   font-family: "MockFlowFont";
@@ -106,12 +128,12 @@ body {
   color: #d7bdca;
 }
 
-.card__status {
+#card__status {
   font-size: 0.8em;
   color: #d7bdca;
 }
 
-.card__description {
+#card__description {
   padding: 0 2em 2em;
   margin: 0;
   color: #000000;
@@ -120,4 +142,8 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
+}
+
+#card #card-body #text-center {
+  border: 1px solid rgb(255, 119, 0);
 }

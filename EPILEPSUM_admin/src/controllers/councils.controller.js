@@ -1,11 +1,11 @@
 const councilsCtl = {};
 
-const pool = require("../Configuration/basededatos.sql");
+const baseDatosSQL = require("../Configuration/basededatos.sql");
 
 
 councilsCtl.getScreeam = async (req, res) => {
 
-  const councils = await pool.query('SELECT *FROM consejos');
+  const councils = await baseDatosSQL.query('SELECT *FROM consejos');
 
   //    console.log(users);
   res.render('pages/councils/councils-list', { councils });
@@ -19,14 +19,14 @@ councilsCtl.add = async (req, res) => {
     
   };
   //console.log(newCouncil);
-  await pool.query('INSERT INTO consejos set ?', [newCouncil]);
+  await baseDatosSQL.query('INSERT INTO consejos set ?', [newCouncil]);
   req.flash('success', 'se agrego un consejo');
   res.redirect('/list-councils');
 };
 
 councilsCtl.delete = async (req, res) => {
   const { id } = req.params;
-  await pool.query('DELETE FROM consejos WHERE ID = ?', [id]);
+  await baseDatosSQL.query('DELETE FROM consejos WHERE ID = ?', [id]);
 
   req.flash('success', 'Experiencia borrado correctamente');
 

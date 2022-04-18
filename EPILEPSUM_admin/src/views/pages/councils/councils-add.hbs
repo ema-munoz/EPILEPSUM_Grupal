@@ -1,41 +1,28 @@
-<div class="container p-4">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
+<link rel="stylesheet" href="/css/my/add.css" />
 
-      <div class="card" style="border: 1px solid rgb(255, 119, 0)">
-        <div class="card-body">
-          <form action="/add-councils" method="POST">
-            <h1 style="color: rgb(253, 103, 44);">Agregar Concejo</h1>
-            <div class="form-group">
-              <input
-                type="text"
-                name="nombreConsejo"
-                class="form-control"
-                placeholder="nombre Consejo"
-                required
-                autofocus
-              />
-            </div>
-            <br />
-            <div class="form-group">
-              <input
-                type="text"
-                name="descripcionConsejo"
-                class="form-control"
-                placeholder="descripcion Consejo"
-                required
-              />
-            </div>
-            <br />
-            <div class="form-group">
-              <button class="btn btn-primary btn-block">
-                Save
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
+<form action="/add-councils" method="POST">
+  <div id="logo"></div>
+  <div id="title">Creando</div>
+  <div id="sub-title">Consejo</div>
+  <div id="input">
+    <div id="inputBox">
+      <label>Nombre Consejo</label>
+      <input
+        type="text"
+        name="nombreConsejo"
+        placeholder="Mi consejo se llama..."
+      />
     </div>
-
+    <div id="inputBox">
+      <label>Descripción Consejo</label>
+      <input
+        type="text"
+        name="descripcionConsejo"
+        placeholder="Mi consejo es..."
+      />
+    </div>
+    <div id="inputBox">
+      <input type="submit" value="Save" />
+    </div>
   </div>
-</div>
+</form>
