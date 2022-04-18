@@ -1,0 +1,31 @@
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/CSS/proyecto/agregarProyecto.css">
+
+<div id="fondo">
+    <img src="/img/fondos/Fondo.jpg" alt="Logo">
+</div>
+
+
+<form action="/proyecto/lista/{{user.idusuario}}" method="get"></form>
+<div id="contenido">
+    {{#each listas}}
+    <div id="nombre">
+        <label>{{nombreProyecto}}</label>
+    </div>
+    {{/each}}
+    {{#each objetivos}}
+    <div id="objetivos">
+        <ul>
+            <li>{{objetivos}}</li>
+        </ul>
+    </div>
+    {{/each}}
+</div>
+
+<div id="img">
+    <img src="/img/logo/Logo_epilepsum.png" alt="Logo">
+</div>
+
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

@@ -1,15 +1,37 @@
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/css/proyecto/agregarProyecto.css">
+
+<div id="fondo">
+    <img src="/img/fondos/Fondo.jpg" alt="Logo">
+</div>
+
+
 <form action="/proyecto/lista/{{user.idusuario}}" method="get"></form>
 <div id="contenido">
     {{#each listas}}
     <div id="nombre">
-       <label >{{nombreProyecto}}</label> 
+        <label>{{nombreProyecto}}</label>
     </div>
     {{/each}}
     {{#each objetivos}}
     <div id="objetivos">
         <ul>
-            <li>{{objetivos}}</li>            
+            <li>{{objetivos}}</li>
         </ul>
+        <div id="botonEditar">
+            <button>
+                <a href="/efectosSecundarios/editar/{{idEfectosSecundarios}}">Editar</a>
+            </button>
+        </div>
+
+        <div id="botonEliminar">
+            <button>
+                <a href="/efectosSecundarios/eliminar/{{idEfectosSecundarios}}">Eliminar</a>
+            </button>
+        </div>
     </div>
     {{/each}}
 </div>
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

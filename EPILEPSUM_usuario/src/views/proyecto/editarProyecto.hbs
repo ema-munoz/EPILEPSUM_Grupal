@@ -1,0 +1,34 @@
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/CSS/proyecto/agregarProyecto.css">
+
+<div id="fondo">
+    <img src="/img/fondos/Fondo.jpg" alt="Logo">
+</div>
+
+
+<form action="/proyecto/editar/{{user.idusuario}}" method="post">
+    <div id="contenido">
+        {{#each listas}}
+        <div id="Nombre">
+            <label>Nombre Proyecto:</label>
+            <input type="text" name="nombreProyecto" id="nombre" value="{{nombreProyecto}}">
+        </div>
+        {{/each}}
+        {{#each lista}}
+        <div id="objetivos">
+            <textarea name="objetivo">{{objetivo}}</textarea>
+        </div>        
+        {{/each}}
+        <div id="boton">
+            <button type="submit">Guardar</button>
+        </div>
+    </div>
+</form>
+
+<div id="img">
+    <img src="/img/logo/Logo_epilepsum.png" alt="Logo">
+</div>
+
+
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>
