@@ -33,7 +33,7 @@ dudas.agregar = async (req, res) => {
 
     /*Agregar Imagen*/
     if (imagenPreguntas === undefined) {
-        console.log ("No se envio ninguna imagen.")        
+        console.log ("No se envio ninguna imagen.")
         } else {
         const imagen = req.files.imagenPreguntas;
         const validacionImagen = path.extname(imagen.name);

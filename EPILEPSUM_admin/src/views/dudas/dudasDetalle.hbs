@@ -13,8 +13,16 @@
                 </label>
             </div>
 
-            <div id="imagen">
-                <img src="/img/dudas/Preguntas/{{imagenPreguntas}}">
+            <div id="imagenPregunta">
+                <img src="/img/dudas/Preguntas/{{imagenPreguntas}}" id="imagenSubida">
+            </div>
+
+            <div id="iconImagen">
+                <img src="/img/usuarios/images.png">
+            </div>
+
+            <div id="videoPregunta">
+                <img src="/video/dudas/Preguntas/{{videoPreguntas}}">
             </div>
             {{/each}}
 
@@ -23,7 +31,6 @@
                 <label>
                     <p>{{respuesta}}</p>
                 </label>
-                
             </div>
             {{/each}}
 
@@ -35,3 +42,5 @@
             </div>
     {{/each}}
 </div>
+
+<script src="/js/dudas/dudas.js"></script>
