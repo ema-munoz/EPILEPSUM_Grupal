@@ -18,9 +18,7 @@ dudas.agregar = async (req, res) => {
         objetivos,
         pregunta,
         numeros,
-        unico,
-        imagenPreguntas,
-        videoPreguntas
+        unico
     } = req.body
     const nuevoAgregamiento = {
         pregunta,
@@ -28,12 +26,9 @@ dudas.agregar = async (req, res) => {
     }
     /* Agregar Pregunta */
     await baseDatosORM.preguntas.create(nuevoAgregamiento)
-    console.log (imagenPreguntas)
-    console.log (videoPreguntas)
-
     /*Agregar Imagen*/
-    if (imagenPreguntas === undefined) {
-        console.log ("No se envio ninguna imagen.")
+    if ( req.files.imagenPreguntas === undefined) {
+        console.log ("No se envio ninguna imagen.")     
         } else {
         const imagen = req.files.imagenPreguntas;
         const validacionImagen = path.extname(imagen.name);
@@ -60,7 +55,7 @@ dudas.agregar = async (req, res) => {
     
 
     /* Agregar Video */
-    if (videoPreguntas === undefined) {
+    if ( req.files.videoPreguntas === undefined) {
         console.log ("No se envio ningun video.")
     } else {
         const video = req.files.videoPreguntas;
@@ -133,7 +128,6 @@ dudas.editar = async (req, res) => {
     const respuestasId = req.params.id;
     const id = req.user.idUsuario
     const {
-        imagenPreguntas,
         pregunta,
         respuestas,
         preguntas,
@@ -152,7 +146,7 @@ dudas.editar = async (req, res) => {
     }).then(pregunta => {
         pregunta.update(actualizacion)
     })
-        if (imagenPreguntas === undefined) {
+        if (req.files.imagenPreguntas === undefined) {
             console.log ("No se cambio la imagen actual.")
         } else {
             const imagen = req.files.imagenPreguntas
