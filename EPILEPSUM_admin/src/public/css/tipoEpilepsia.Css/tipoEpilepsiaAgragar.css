@@ -37,11 +37,11 @@
    
  }
 
- #contenido button{
+#contenido button{
     position: absolute;
     width: 60%;
     font-size: 20px;
-    top: 80%;
+    top: 85%;
     left: 20%;
 }
 
@@ -50,6 +50,7 @@ label{
     left: 5%;
     font-size: 25px;
 }
+
 footer{
     bottom: 0%;
 }
