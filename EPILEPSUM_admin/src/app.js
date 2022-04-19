@@ -69,5 +69,4 @@ app.use('/sintomas', require('./routes/sintomasRutas'))
 
 
 
-
 module.exports = app;

@@ -1,21 +1,19 @@
-<!-- Required meta tags -->
-<link rel="stylesheet" href="/css/tipoEpilepsia.Css/tipoEpilepsiaListas.css">
-
+<link rel="stylesheet" href="/css/tipoEpilepsiaCss/tipoEpilepsiaListas.css">
 <div id="fondo">
-    <img src="/img/fondos/sistemaNervioso.png"> 
+   <img src="/img/fondos/sistemaNervioso.png">
+</div>
+<form action="/tipoEpilepsia/lista/{{user.idUsuario}}" method="get"></form>
 <div id="contenido">
    <div class="row">
-        </div>
-       <div id="titulo">
-                <p>
-                    <b>Tipos de Epilepsias:</b>
-                </p>
-    
       {{#each lista}}
-      <form action="/tipoEpilepsia/lista/{{idTipoEpilepsia}}" method="get"></form>
       <div id="tarjeta">
+         <div id="titulo">
+            <p>
+               <b>Tipos de Epilepsias:</b>
+            </p>
+         </div>
          <div id="nombre">
-                <label> Tipo :</label>
+            <label> Tipo :</label>
             <label>{{nombreTipoEpilepsia}}</label>
          </div>
 
@@ -44,9 +42,10 @@
             </a>
          </div>
       </div>
+      {{/each}}
    </div>
-        {{/each}}
 </div>
+
 
 <div id="plus">
    <a href="/tipoEpilepsia/agregar/{{user.idUsuario}}">
