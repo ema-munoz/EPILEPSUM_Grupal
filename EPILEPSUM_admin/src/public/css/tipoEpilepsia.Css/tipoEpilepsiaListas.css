@@ -1,6 +1,7 @@
 #fondo{
     opacity: 75%;
 }
+
 #contenido{
     background-color: rgba(27, 144, 240, 0.781);
     position: absolute;
@@ -19,11 +20,47 @@
     height: 100%;
     max-width: 30%;
     max-height: 20%;
-    margin-left: 0%;
     text-align: center;
 }
 
-#nombre{
+
+
+#titulo{
+    margin-top: 5%;
+    font-size: 22.5px;
+}
+
+#botonEditar,
+#botonEliminar{
+    width: 100%;
+    height: 100%;
+    max-width: 90%; 
+    max-height: 5%;
+    margin-left: 5%;
+}
+
+#botonEditar{
+    margin-top: 2.5%;
+}
+
+#botonEliminar{
+    margin-top: 2.5%;
+}
+
+#botonEditar button,
+#botonEliminar button,
+#botonEditar a,
+#botonEliminar a{
+    width: 100%;
+    height: 100%;
+}
+
+.row{
+    row-gap: 5%;
+    gap: 50px;
+}
+
+#mensaje{
     background-color: rgba(27, 144, 240, 0.781);
     position: absolute;
     width: 100%;
@@ -48,55 +85,6 @@
     top: 60%;
     left: 15%;
 }
-
-
-
-#mensaje{
-    background-color: rgba(137, 240, 163, 0.781);
-    width: 100%;
-    height: 100%;
-    max-width: 30%;
-    max-height: 20%;
-    margin-left: 0%;
-    text-align: center;
-}
-
-
-#titulo{
-    margin-top: 5%;
-    font-size: 22.5px;
-}
-
-#botonEditar,
-#botonEliminar{
-    width: 100%;
-    height: 100%;
-    max-width: 80%; 
-    max-height: 10%;
-    margin-left: 10%;
-}
-
-#botonEditar{
-    margin-top: 2.5%;
-}
-
-#botonEliminar{
-    margin-top: 2.5%;
-}
-
-#botonEditar button,
-#botonEliminar button,
-#botonEditar a,
-#botonEliminar a{
-    width: 100%;
-    height: 100%;
-}
-
-.row{
-    row-gap: 5%;
-    gap: 50px;
-}
-
 #plus{
     position: absolute;
     width: 100%;
