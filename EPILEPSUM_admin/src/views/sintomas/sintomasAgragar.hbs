@@ -3,22 +3,23 @@
 
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png">
-<form action="/sintomas/agregar/{{user.idUsuario}}" method="post">
-    <div id="contenido">
+    <form action="/sintomas/agregar/{{user.idUsuario}}" method="post">
+        <div id="contenido">
+
+            <div id="Nombre">
+                <label>Sintomas:</label>
+                <input type="text" name="nombreSintomas" id="nombre">
+            </div>
+
+            <div id="Descripcion">
+                <label> Descripcion :</label>
+                <textarea type="text" name="descrpcionSintomas" id="descripcion" maxlength="2500" required> </textarea>
+
+            </div>
+
+            <div id="boton">
+                <button type="submit">Guardar</button>
+            </div>
+        </div>
+    </form>
     
-        <div id="Nombre">
-            <label>Sintomas:</label>
-            <input type="text" name="nombreSintomas" id="nombre">
-        </div>
-        
-<div id="Descripcion"> 
-      <label> Descripcion :</label>
-        <textarea type="text" name="descrpcionSintomas" id="descripcion" maxlength="2500" required> </textarea>
-
-</div>
-
-        <div id="boton">
-            <button type="submit">Guardar</button>
-        </div>
-    </div>
-</form>

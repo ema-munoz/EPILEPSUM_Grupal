@@ -14,7 +14,7 @@ sintomasCtl.enviar = async(req, res) => {
     const nuevoEnvio = {
         nombreSintomas,
         descrpcionSintomas,
-        usuarioIdusuario: id  
+        usuarioIdUsuario: id  
     }
     await baseDatosORM.sintomas.create(nuevoEnvio)
     req.flash('success', 'guardado')
@@ -23,8 +23,8 @@ sintomasCtl.enviar = async(req, res) => {
 
 
 sintomasCtl.lista = async(req, res) => {
-const ids = req.params.id
-const lista = await baseDatosSQL.query ('select * from  sintomas ?')
+const id = req.user.idUsuario
+const lista = await baseDatosSQL.query ('select * from  sintomas where usuarioIdUsuario= ?',[id])
 res.render('sintomas/sintomasListas',{ lista})
 }
 
