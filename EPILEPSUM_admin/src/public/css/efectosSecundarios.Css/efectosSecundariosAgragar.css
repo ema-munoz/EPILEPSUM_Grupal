@@ -25,6 +25,10 @@
     text-align: center;
   
 }
+#titulo{
+    margin-top: 5%;
+    text-align: center;
+}
 
 #Nombre{
     position: absolute;
