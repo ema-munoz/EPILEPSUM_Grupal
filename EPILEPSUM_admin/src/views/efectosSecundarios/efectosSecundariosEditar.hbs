@@ -8,6 +8,7 @@
                 <p>
                     <b>Efectos Secundarios:</b>
                 </p>
+</div>
 {{#each lista}} 
 <form action="/efectosSecundarios/editar/{{idEfectosSecundarios}}" method="post">
     <div id="contenido">
@@ -16,14 +17,11 @@
             <label>Efectos Secundarios:</label>
             <input type="text" name="nombreEfectosSecundarios" id="nombre" value="{{nombreEfectosSecundarios}}">
         </div>
-
-
     <div id="Descripcion"> 
       <label> Descripcion :</label>
         <textarea type="text" name="descripcionEfectosSecundarios" id="descripcion" maxlength="2500" required> {{descripcionEfectosSecundarios}} </textarea>
 
 </div>
-    
         <div id="boton">
             <button type="submit">Guardar</button>
         </div>

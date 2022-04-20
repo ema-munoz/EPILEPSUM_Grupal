@@ -1,8 +1,9 @@
 <!-- Required meta tags -->
-<link rel="stylesheet" href="/css/tipoEpilepsia.Css/tipoEpilepsiaEditar.css">
+<link rel="stylesheet" href="/css/tipoEpilepsiaCss/tipoEpilepsiaEditar.css">
 
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png">
+</div>
 
 {{#each lista}} 
 <form action="/tipoEpilepsia/editar/{{idTipoEpilepsia}}" method="post">
@@ -20,6 +21,7 @@
         <div id="boton">
             <button type="submit">Guardar</button>
         </div>
+    </div>
     </div>
 </form>
 {{/each}}
