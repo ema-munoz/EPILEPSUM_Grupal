@@ -1,29 +1,42 @@
-<link rel="stylesheet" href="/css/my/add.css" />
-<form action="/add-councils" method="POST">
-  <div id="logo"></div>
-  <div id="title">Crear</div>
-  <div id="sub-title">Experiencia</div>
-  <div id="input">
-    <div id="inputBox">
-      <label>Nombre Experiencia</label>
-      <input
-        type="text"
-        name="nombreExperiencia"
-        placeholder="Mi experiencia se llama..."
-        required
-      />
+<link rel="stylesheet" href="/css/my/form.css" />
+<div id="fondo">
+  <img src="/img/fondos/Fondo.jpg" alt="Logo" />
+</div>
+
+<div id="contenedor">
+  <form action="/add" method="POST">
+    <div id="title">Agregar</div>
+    <div id="sub-title">Experiencia</div>
+    <div id="input">
+      <div id="Nombre">
+        <label for="nombreIntxt">
+          <span>Nombre de la experiencia</span>
+        </label>
+        <input
+          id="nombreIntxt"
+          type="text"
+          name="nombreExperiencia"
+          placeholder="Nombre de mi experiencia..."
+          required
+        />
+      </div>
+
+      <div id="description">
+        <label for="descriptionIntxt">
+          <span>Descripción de la experiencia</span>
+        </label>
+        <input
+          id="descriptionIntxt"
+          type="text"
+          name="descripcionExperiencia"
+          placeholder="Descripción de mi experiencia..."
+          required
+        />
+      </div>
+
+      <div id="save">
+        <input type="submit" value="Save" />
+      </div>
     </div>
-    <div id="inputBox">
-      <label>Descripción Experiencia</label>
-      <input
-        type="text"
-        name="descripcionExperiencia"
-        placeholder="Mi experiencia es..."
-        required
-      />
-    </div>
-    <div id="inputBox">
-      <input type="submit" value="Save" />
-    </div>
-  </div>
-</form>
+  </form>
+</div>
