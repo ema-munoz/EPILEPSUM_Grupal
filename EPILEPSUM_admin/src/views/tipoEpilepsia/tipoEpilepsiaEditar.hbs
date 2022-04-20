@@ -7,8 +7,11 @@
 
 {{#each lista}} 
 <form action="/tipoEpilepsia/editar/{{idTipoEpilepsia}}" method="post">
-    <div id="contenido">
-     
+    <div id="contenido">   <div id="titulo">
+                <p>
+                    <b>Tipo de Epilepsia:</b>
+                </p>
+       </div>
         <div id="Nombre">
             <label>Tipo :</label>
             <input type="text" name="nombretipoEpilepsia" id="nombre" value="{{nombreTipoEpilepsia}}">
