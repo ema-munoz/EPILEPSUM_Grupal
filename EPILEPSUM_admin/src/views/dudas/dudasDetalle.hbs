@@ -14,7 +14,7 @@
             </div>
 
             <div id="imagenPregunta">
-                <img src="/img/dudas/Preguntas/{{imagenPreguntas}}" id="imagenSubida">
+                <img src="/img/dudas/Preguntas/{{imagenPreguntas}}" id="imagenSubidaPregunta">
             </div>
 
             <div id="iconImagen">
@@ -22,7 +22,11 @@
             </div>
 
             <div id="videoPregunta">
-                <img src="/video/dudas/Preguntas/{{videoPreguntas}}">
+                <video src="/video/dudas/Preguntas/{{videoPreguntas}}" id="videoSubidoPregunta"></video>
+            </div>
+
+            <div id="iconVideo">
+                <img src="/img/usuarios/video.png">
             </div>
             {{/each}}
 
@@ -32,6 +36,15 @@
                     <p>{{respuesta}}</p>
                 </label>
             </div>
+
+            <div id="imagenRespuesta">
+                <img src="/img/dudas/Respuestas/{{imagenRespuestas}}" id="imagenSubidaRespuesta">
+            </div>
+
+            <div id="videoRespuesta">
+                <video src="/video/dudas/Respuestas/{{videoRespuestas}}" id="videoSubidoRespuesta"></video>
+            </div>
+
             {{/each}}
 
             {{#each enlistar}}

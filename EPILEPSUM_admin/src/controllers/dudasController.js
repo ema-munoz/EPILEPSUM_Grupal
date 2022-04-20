@@ -5,92 +5,145 @@ const baseDatosSQL = require("../Configuration/basededatos.sql");
 const baseDatosORM = require("../Configuration/basededatos.orm");
 
 dudas.mostrar = async (req, res) => {
-    const idMax = await baseDatosSQL.query("SELECT MAX(idPreguntas) FROM preguntas")
+    const idMaxPregunta = await baseDatosSQL.query("SELECT MAX(idPreguntas) FROM preguntas")
+    const idMaxRespuesta = await baseDatosSQL.query("SELECT MAX(idRespuesta) FROM respuestas")
     res.render("dudas/dudasAgregar", {
-        idMax
+        idMaxPregunta,
+        idMaxRespuesta
     });
 }
 
 dudas.agregar = async (req, res) => {
-    const respuestasId = req.user.idUsuario;
-    const {
-        IdPreguntas,
-        objetivos,
-        pregunta,
-        numeros,
-        unico
-    } = req.body
-    const nuevoAgregamiento = {
-        pregunta,
-        usuarioIdUsuario: respuestasId
-    }
-    /* Agregar Pregunta */
-    await baseDatosORM.preguntas.create(nuevoAgregamiento)
-    /*Agregar Imagen*/
-    if ( req.files.imagenPreguntas === undefined) {
-        console.log ("No se envio ninguna imagen.")     
-        } else {
-        const imagen = req.files.imagenPreguntas;
-        const validacionImagen = path.extname(imagen.name);
-        const extesionImagen = [".png", ".jpg", ".jpeg", ".gif", ".tif"];
-
-        if (!extesionImagen.includes(validacionImagen)) {
-            req.flash ("success", "Imagen no compatible.")
-        }
-
-        if (!req.files) {
-            req.flash ("success", "Imagen no insertada.")
-        }
-
-        const ubicacion = __dirname + "/../public/img/dudas/Preguntas/" + imagen.name;
-
-        imagen.mv(ubicacion, function (err) {
-            if (err) {
-                return res.status(500).send(err)
+            const respuestasId = req.user.idUsuario;
+            const {
+                preguntaFinalImagen,
+                preguntaFinalVideo,
+                respuestaFinalImagen,
+                respuestaFinalVideo,
+                IdPreguntas,
+                idRespuesta,
+                pregunta,
+                unico
+            } = req.body
+            const nuevoAgregamiento = {
+                pregunta,
+                usuarioIdUsuario: respuestasId
             }
-            baseDatosSQL.query("UPDATE preguntas SET imagenPreguntas = ? WHERE idPreguntas = ?", [imagen.name, IdPreguntas])
-        })
-        console.log ("imagen ingresada")
-    }
-    
+            /* Agregar Pregunta */
+            await baseDatosORM.preguntas.create(nuevoAgregamiento)
 
-    /* Agregar Video */
-    if ( req.files.videoPreguntas === undefined) {
-        console.log ("No se envio ningun video.")
-    } else {
-        const video = req.files.videoPreguntas;
-        const validacionVideo = path.extname(video.name);
-        const extensionVideo = [".MOV", ".MKV", ".MP4", ".WMV", ".FLV"]
+            /*Agregar Imagen*/
+            if (preguntaFinalImagen === "No") {
+                console.log("No se envio ninguna imagen.")
+            } else {
+                const imagen = req.files.imagenPreguntas;
+                const validacionImagen = path.extname(imagen.name);
+                const extesionImagen = [".PNG", ".JPG", ".JPEG", ".GIF", ".TIF", ".png", ".jpg", ".jpeg", ".gif", ".tif"];
 
-        if (!extensionVideo.includes(validacionVideo)) {
-            req.flash ("success", "Video no compatible.")
-        }
+                if (!extesionImagen.includes(validacionImagen)) {
+                    req.flash("success", "Imagen no compatible.")
+                }
 
-        if (!req.files) {
-            req.flash ("success", "Video no insertado.")
-        }
+                if (!req.files) {
+                    req.flash("success", "Imagen no insertada.")
+                }
 
-        const ubicacion = __dirname + "/../public/video/dudas/Preguntas/" + video.name;
+                const ubicacion = __dirname + "/../public/img/dudas/Preguntas/" + imagen.name;
 
-        video.mv(ubicacion, function (err) {
-            if (err){
-                return res.status(500).send(err)
+                imagen.mv(ubicacion, function (err) {
+                    if (err) {
+                        return res.status(500).send(err)
+                    }
+                    baseDatosSQL.query("UPDATE preguntas SET imagenPreguntas = ? WHERE idPreguntas = ?", [imagen.name, IdPreguntas])
+                })
+                console.log("Imagen de pregunta ingresada")
             }
-            baseDatosSQL.query("UPDATE preguntas SET videoPreguntas = ? WHERE idPreguntas = ?", [video.name, IdPreguntas])
-        })
-        console.log ("video ingresada")
-    }
+
+
+            /* Agregar Video */
+            if (preguntaFinalVideo === "No") {
+                console.log("No se envio ningun video.")
+            } else {
+                const video = req.files.videoPreguntas;
+                const validacionVideo = path.extname(video.name);
+                const extensionVideo = [".MOV", ".MKV", ".MP4", ".WMV", ".FLV", ".mov", ".mkv", ".mp4", ".wmv", ".flv"]
+
+                if (!extensionVideo.includes(validacionVideo)) {
+                    req.flash("success", "Video no compatible.")
+                }
+
+                if (!req.files) {
+                    req.flash("success", "Video no insertado.")
+                }
+
+                const ubicacion = __dirname + "/../public/video/dudas/Preguntas/" + video.name;
+
+                video.mv(ubicacion, function (err) {
+                    if (err) {
+                        return res.status(500).send(err)
+                    }
+                    baseDatosSQL.query("UPDATE preguntas SET videoPreguntas = ? WHERE idPreguntas = ?", [video.name, IdPreguntas])
+                })
+                console.log("video de pregunta ingresada")
+            }
+
+            /*Agregar Imagen*/
+            if (respuestaFinalImagen === "No") {
+                console.log("No se envio ninguna imagen.")
+            } else {
+                const imagen = req.files.imagenRespuesta;
+                const validacionImagen = path.extname(imagen.name);
+                const extesionImagen = [".png", ".jpg", ".jpeg", ".gif", ".tif"];
+
+                if (!extesionImagen.includes(validacionImagen)) {
+                    req.flash("success", "Imagen no compatible.")
+                }
+
+                if (!req.files) {
+                    req.flash("success", "Imagen no insertada.")
+                }
+
+                const ubicacion = __dirname + "/../public/img/dudas/Respuestas/" + imagen.name;
+
+                imagen.mv(ubicacion, function (err) {
+                    if (err) {
+                        return res.status(500).send(err)
+                    }
+                    baseDatosSQL.query("UPDATE respuestas SET imagenRespuesta = ? WHERE idRespuesta = ?", [imagen.name, idRespuesta])
+                })
+                console.log("Imagen de respuesta ingresada")
+            }
+            
+        
+            /* Agregar Video */
+            if ( respuestaFinalVideo === "No") {
+                console.log ("No se envio ningun video.")
+            } else {
+                const video = req.files.videoRespuesta;
+                const validacionVideo = path.extname(video.name);
+                const extensionVideo = [".MOV", ".MKV", ".MP4", ".WMV", ".FLV"]
+        
+                if (!extensionVideo.includes(validacionVideo)) {
+                    req.flash ("success", "Video no compatible.")
+                }
+        
+                if (!req.files) {
+                    req.flash ("success", "Video no insertado.")
+                }
+        
+                const ubicacion = __dirname + "/../public/video/dudas/Respuestas/" + video.name;
+        
+                video.mv(ubicacion, function (err) {
+                    if (err){
+                        return res.status(500).send(err)
+                    }
+                    baseDatosSQL.query("UPDATE respuestas SET videoRespuesta = ? WHERE idRespuesta = ?", [video.name, idRespuesta])
+                })
+                console.log ("video ingresada")
+            }
 
     /* Agregar Respuesta */
-    if (parseInt(numeros) === 1) {
         await baseDatosSQL.query("INSERT INTO respuestas (respuesta, usuarioIdUsuario, preguntaIdPreguntas) VALUES(?, ?, ?)", [unico, respuestasId, IdPreguntas])
-    } else {
-        if (parseInt(numeros) > 1) {
-            for (let i = 0; i < objetivos.length; i++) {
-                await baseDatosSQL.query("INSERT INTO respuestas (respuesta, usuarioIdUsuario, preguntaIdPreguntas) VALUES(?, ?, ?)", [objetivos[i], respuestasId, IdPreguntas])
-            }
-        }
-    }
     req.flash("success", "Datos Guardos")
     res.redirect("/dudas/lista/" + respuestasId)
 }
