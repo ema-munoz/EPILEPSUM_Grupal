@@ -1,5 +1,6 @@
 #fondo{
     opacity: 75%;
+    position: fixed;
 }
 
 #contenido{
