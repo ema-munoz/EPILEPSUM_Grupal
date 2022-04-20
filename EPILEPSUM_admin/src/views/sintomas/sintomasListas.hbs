@@ -1,44 +1,51 @@
+<link rel="stylesheet" href="/css/sintomasCss/sintomasListas.css">
+<div id="fondo">
+   <img src="/img/fondos/sistemaNervioso.png">
+</div>
+<form action="/efectosSecundarios/lista/{{user.idUsuario}}" method="get"></form>
 <div id="contenido">
    <div class="row">
       {{#each lista}}
-      <form action="/sintomas/lista/{{idSintomas}}" method="get"></form>
       <div id="tarjeta">
+         <div id="titulo">
+            <p>
+               <b>Sintomas:</b>
+            </p>
+         </div>
          <div id="nombre">
+            <label> Efectos :</label>
             <label>{{nombreSintomas}}</label>
          </div>
 
          <div id="Descripcion">
             <label> Descripcion :</label>
             <p> {{descrpcionSintomas}} </p>
-
-            <div id="botonEditar">
-               <button>
-                  <a href="/sintomas/editar/{{idSintomas}}">Editar</a>
-               </button>
-            </div>
-
-            <div id="botonEliminar">
-               <button>
-                  <a href="/sintomas/eliminar/{{idSintomas}}">Eliminar</a>
-               </button>
-            </div>
          </div>
 
-         {{else}}
-         <div id="mensaje">
-            <p><b>No presenta ningun sintoma. </b></p>
-            <a href="/sintomas/agregar/{{user.idUsuario}}">
-               <button type="button">¿Desea registrar?</button>
-            </a>
+         <div id="botonEditar">
+            <button>
+               <a href="/sintomas/editar/{{idSintomas}}">Editar</a>
+            </button>
          </div>
-         {{/each}}
+
+         <div id="botonEliminar">
+            <button>
+               <a href="/sintomas/eliminar/{{idSintomas}}">Eliminar</a>
+            </button>
+         </div>
       </div>
+      {{else}}
+      <div id="mensaje">
+         <p><b>No tienes ningun sintoma . </b></p>
+         <a href="/sintomas/agregar/{{user.idUsuario}}">
+            <button type="button">¿Desea registrar?</button>
+         </a>
+      </div>
+      {{/each}}
    </div>
 </div>
-
 <div id="plus">
    <a href="/sintomas/agregar/{{user.idUsuario}}">
       <button type="button"><img src="/img/usuarios/plus.png"></button>
    </a>
 </div>
-

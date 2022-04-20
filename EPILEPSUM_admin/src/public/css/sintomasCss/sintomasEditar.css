@@ -21,33 +21,27 @@
     max-width: 800px;
     max-height: 50%;
     left: 0.5%;
-    top: 25%;
+    top: 35%;
     text-align: center;
   
 }
-
-#titulo{
-    margin-top: 5%;
-    text-align: center;
-}
-
 
 #Nombre{
     position: absolute;
      width: 100%;
      height: 100%;
      max-width: 800px;
-     top: 5%;
+     top: 15%;
      max-height: 50%;
      text-align: center;
    
  }
 
- #contenido button{
+#contenido button{
     position: absolute;
     width: 60%;
     font-size: 20px;
-    top: 80%;
+    top: 85%;
     left: 20%;
 }
 
@@ -56,6 +50,7 @@ label{
     left: 5%;
     font-size: 25px;
 }
+
 footer{
     bottom: 0%;
 }

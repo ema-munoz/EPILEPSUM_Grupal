@@ -1,6 +1,15 @@
+<link rel="stylesheet" href="/css/sintomasCss/sintomasEditar.css">
+
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</div>
 <form action="/sintomas/editar/{{idSintomas}}" method="post">
     <div id="contenido">
-     
+       <div id="titulo">
+                <p>
+                    <b>Sintomas:</b>
+                </p>
+       </div>
         <div id="Nombre">
             <label>Sintomas:</label>
             <input type="text" name="nombreSintomas" id="nombre" value="{{nombreSintomas}}">
@@ -13,5 +22,6 @@
         <div id="boton">
             <button type="submit">Guardar</button>
         </div>
+    </div>
     </div>
 </form>

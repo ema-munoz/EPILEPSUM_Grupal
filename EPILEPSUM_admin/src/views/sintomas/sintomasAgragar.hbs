@@ -1,10 +1,18 @@
 <!-- Required meta tags -->
-<link rel="stylesheet" href="/css/sintomas.Css/sintomasAgragar.css">
+<link rel="stylesheet" href="/css/sintomasCss/sintomasAgragar.css">
 
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png">
+</div>
     <form action="/sintomas/agregar/{{user.idUsuario}}" method="post">
         <div id="contenido">
+              <div id="tarjeta">
+           <div id="titulo">
+                <p>
+                    <b>Sintomas:</b>
+                </p>
+           </div>
+
 
             <div id="Nombre">
                 <label>Sintomas:</label>
@@ -21,5 +29,7 @@
                 <button type="submit">Guardar</button>
             </div>
         </div>
+        </div>
+        
     </form>
     
