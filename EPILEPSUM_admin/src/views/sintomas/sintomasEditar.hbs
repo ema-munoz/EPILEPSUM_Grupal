@@ -3,6 +3,7 @@
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png">
 </div>
+{{#each lista}} 
 <form action="/sintomas/editar/{{idSintomas}}" method="post">
     <div id="contenido">
        <div id="titulo">
@@ -25,3 +26,4 @@
     </div>
     </div>
 </form>
+{{/each}}
