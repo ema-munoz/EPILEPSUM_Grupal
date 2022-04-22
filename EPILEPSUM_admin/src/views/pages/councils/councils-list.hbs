@@ -11,7 +11,7 @@
   <center>
     <ul id="cards">
       <li>
-        <div class="card">
+        <div id="card">
           {{#if imagenConsejo}}
             <img src="/{{imagenConsejo}}" id="card__image" />
           {{else}}
@@ -67,10 +67,11 @@
 
     </ul>
   </center>
+
 {{else}}
   <center>
     <div id="padd">
-      <div class="card card-body text-center">
+      <div id="card">
         <p>No tienes consejos agregados.</p>
         <a href="/add-councils">crea uno!</a>
       </div>
