@@ -6,53 +6,61 @@
 
 <form action="/dudas/detalle/{{user.idUsuario}}" method="GET"></form>
 <div id="contenedor">
-        {{#each enlistar}}
-            <div id="titulo">
-                <label>
-                    <b>{{pregunta}}</b>
-                </label>
-            </div>
+    {{#each enlistar}}
+    <div id="titulo">
+        <label>
+            <b>{{pregunta}}</b>
+        </label>
+    </div>
 
-            <div id="imagenPregunta">
-                <img src="/img/dudas/Preguntas/{{imagenPreguntas}}" id="imagenSubidaPregunta">
-            </div>
+    <div id="imagenPregunta">
+        <img src="/img/dudas/Preguntas/{{imagenPreguntas}}" id="imagenSubidaPregunta">
+    </div>
 
-            <div id="iconImagen">
-                <img src="/img/usuarios/images.png">
-            </div>
+    <div id="iconImagenPregunta">
+        <img src="/img/usuarios/images.png">
+    </div>
 
-            <div id="videoPregunta">
-                <video src="/video/dudas/Preguntas/{{videoPreguntas}}" id="videoSubidoPregunta"></video>
-            </div>
+    <div id="videoPregunta">
+        <video src="/video/dudas/Preguntas/{{videoPreguntas}}" id="videoSubidoPregunta" controls></video>
+    </div>
 
-            <div id="iconVideo">
-                <img src="/img/usuarios/video.png">
-            </div>
-            {{/each}}
+    <div id="iconVideoPregunta">
+        <img src="/img/usuarios/video.png">
+    </div>
+    {{/each}}
 
-            {{#each enlistar1}}
-            <div id="Respuesta">
-                <label>
-                    <p>{{respuesta}}</p>
-                </label>
-            </div>
+    {{#each enlistar1}}
+    <div id="Respuesta">
+        <label>
+            <p>{{respuesta}}</p>
+        </label>
+    </div>
 
-            <div id="imagenRespuesta">
-                <img src="/img/dudas/Respuestas/{{imagenRespuestas}}" id="imagenSubidaRespuesta">
-            </div>
+    <div id="imagenRespuesta">
+        <img src="/img/dudas/Respuestas/{{imagenRespuesta}}" id="imagenSubidaRespuesta">
+    </div>
 
-            <div id="videoRespuesta">
-                <video src="/video/dudas/Respuestas/{{videoRespuestas}}" id="videoSubidoRespuesta"></video>
-            </div>
+    <div id="iconImagenRespuesta">
+        <img src="/img/usuarios/images.png">
+    </div>
 
-            {{/each}}
 
-            {{#each enlistar}}
-            <div id="botonEditar">
-                <button>
-                    <a href="/dudas/editar/{{idPreguntas}}">Editar</a>
-                </button>
-            </div>
+    <div id="videoRespuesta">
+        <video src="/video/dudas/Respuestas/{{videoRespuesta}}" id="videoSubidoRespuesta" controls></video>
+    </div>
+
+    <div id="iconVideoRespuesta">
+        <img src="/img/usuarios/video.png">
+    </div>
+    {{/each}}
+
+    {{#each enlistar}}
+    <div id="botonEditar">
+        <button>
+            <a href="/dudas/editar/{{idPreguntas}}">Editar</a>
+        </button>
+    </div>
     {{/each}}
 </div>
 

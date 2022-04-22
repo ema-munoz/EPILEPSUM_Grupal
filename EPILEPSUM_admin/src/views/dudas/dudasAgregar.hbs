@@ -8,7 +8,7 @@
     <form action="/dudas/agregar/{{user.idUsuario}}" method="post" enctype="multipart/form-data">
         <div id="titulo">
             <label>
-                Agregar Pregunta y Respuesta
+                Agregar Pregunta y Respuesta:
             </label>
         </div>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div id="Pregunta">
-            <textarea type="text" name="pregunta" id="pregunta" placeholder="Escribe tu pregunta." checked></textarea>
+            <textarea type="text" name="pregunta" id="pregunta" placeholder="Escribe tu pregunta." required></textarea>
         </div>
 
         <!-- Pregunta Imagen -->
@@ -39,12 +39,12 @@
 
             <div id="preguntaImagenSi">
                 <input type="radio" id="imagenPreguntasSi" name="imagenPreguntasSi" value="Si"
-                    onclick="opcion.seleccion()" />Sí
+                    onclick="opcion.seleccion()"/>Sí
             </div>
 
             <div id="preguntaImagenNo">
                 <input type="radio" id="imagenPreguntasNo" name="imagenPreguntasNo" value="No"
-                    onclick="opcion.seleccion()" />No
+                    onclick="opcion.seleccion()"/>No
             </div>
         </div>
 
@@ -61,12 +61,12 @@
 
             <div id="preguntaVideoSi">
                 <input type="radio" id="videoPreguntasSi" name="videoPreguntasSi" value="Si"
-                    onclick="opcion.seleccion()" />Sí
+                    onclick="opcion.seleccion()"/>Sí
             </div>
 
             <div id="preguntaVideoNo">
                 <input type="radio" id="videoPreguntasNo" name="videoPreguntasNo" value="No"
-                    onclick="opcion.seleccion()" />No
+                    onclick="opcion.seleccion()"/>No
             </div>
         </div>
 
@@ -89,7 +89,6 @@
             <input type="file" name="imagenRespuesta" id="imagenRespuestas" />
         </div>
 
-
         <div id="RespuestaImagen">
             <input type="text" id="respuestaFinalImagen" name="respuestaFinalImagen" />
             <div id="imagenRespuesta">
@@ -98,12 +97,12 @@
 
             <div id="respuestaImagenSi">
                 <input type="radio" id="imagenRespuestaSi" name="imagenRespuestaSi" value="Si"
-                    onclick="opcion.seleccion()" />Sí
+                    onclick="opcion.seleccion()"/>Sí
             </div>
 
             <div id="respuestaImagenNo">
                 <input type="radio" id="imagenRespuestaNo" name="imagenRespuestaNo" value="No"
-                    onclick="opcion.seleccion()" />No
+                    onclick="opcion.seleccion()"/>No
             </div>
         </div>
 
@@ -120,12 +119,12 @@
 
             <div id="respuestaVideoSi">
                 <input type="radio" id="videoRespuestaSi" name="videoRespuestaSi" value="Si"
-                    onclick="opcion.seleccion()" />Sí
+                    onclick="opcion.seleccion()"/>Sí
             </div>
 
             <div id="respuestaVideoNo">
                 <input type="radio" id="videoRespuestaNo" name="videoRespuestaNo" value="No"
-                    onclick="opcion.seleccion()" />No
+                    onclick="opcion.seleccion()"/>No
             </div>
         </div>
 
