@@ -1,7 +1,9 @@
 <link rel="stylesheet" href="/css/efectosSecundariosCss/efectosSecundariosListas.css">
+
 <div id="fondo">
    <img src="/img/fondos/sistemaNervioso.png">
 </div>
+
 <form action="/efectosSecundarios/lista/{{user.idUsuario}}" method="get"></form>
 <div id="contenido">
    <div class="row">
@@ -38,7 +40,7 @@
       <div id="mensaje">
          <p><b>No tiene Efectos Secundarios. </b></p>
          <a href="/efectosSecundarios/agregar/{{user.idUsuario}}">
-            <button type="button">¿Desea registrar?</button>
+            <button type="button">¿Desea registrar ?</button>
          </a>
       </div>
       {{/each}}

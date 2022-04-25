@@ -65,11 +65,11 @@
     background-color: rgba(27, 144, 240, 0.781);
     position: absolute;
     width: 100%;
-    height: 100%;
-    max-width: 750px;
-    max-height: 250px;
-    left: 30%;
-    top: 13%;
+    height: 100px;
+    max-width: 95%;
+    max-height: 100px;
+    left: 5%;
+    top: 100%;
     text-align: center;
 }
 
