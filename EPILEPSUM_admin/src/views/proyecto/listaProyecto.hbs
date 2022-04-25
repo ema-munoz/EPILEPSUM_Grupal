@@ -1,10 +1,10 @@
-<!-- Required meta tags -->
+<!-- Required meta tags 
 <link rel="stylesheet" href="/CSS/proyecto/listaProyecto.css">
 
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png" alt="Logo">
 </div>
-
+-->
 <div id="contenedor">
     <div id="formulario">
         <form action="/proyecto/lista/{{user.idUsuario}}" method="get">
@@ -22,13 +22,13 @@
                 </div>
                 <div id="botonEditar">
                     <button>
-                        <a href="/efectosSecundarios/editar/{{idDetalleProyecto}}">Editar</a>
+                        <a href="/proyecto/editarProyecto/{{idDetalleProyecto}}">Editar</a>
                     </button>
                 </div>
 
                 <div id="botonEliminar">
                     <button>
-                        <a href="/efectosSecundarios/eliminar/{{idDetalleProyecto}}">Eliminar</a>
+                        <a href="/proyecto/eliminarProyecto/{{idDetalleProyecto}}">Eliminar</a>
                     </button>
                 </div>
                 {{/each}}

@@ -1,5 +1,6 @@
 <!-- Required meta tags -->
-<link rel="stylesheet" href="/CSS/proyecto/agregarProyecto.css">
+<link rel="stylesheet" href="/CSS/proyecto/agregarProyecto.css"> 
+
 
 <div id="fondo">
     <img src="/img/fondos/sistemaNervioso.png" alt="Logo">
@@ -7,21 +8,21 @@
 
 <div id="contenedor">
     <!-- Aquí comienza el primer formulario -->
-    <div id="formulario">
+    <div id="formulario">        
         <h1 id="h1" name="h1">Agregar Proyecto</h1>
         <form action="/proyecto/agregar/" method="post">
-            <div id="contenido">
+            <!-- <div id="contenido">
                 <div id="id">
                     {{#each proyecto}}
                     <input type="text" name="numero" id="numero" value="{{idProyecto}}">
                     {{/each}}
-                </div>
+                </div> -->
                 <div id="Nombre">
                     <label>Nombre Proyecto:</label>
                     <input type="text" name="nombreProyecto" id="nombre">
                 </div>
                 <div id="objetivos">
-                    <label>Objetivos</label>
+                    <label>Objetivos:</label>
                     <input type="text" id="numeros" checked>
                     <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
                 </div>
