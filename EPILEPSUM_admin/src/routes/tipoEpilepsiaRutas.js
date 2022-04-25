@@ -1,10 +1,10 @@
 const express = require('express');
 const rutas = express.Router()
 
-const { enseñar, dirigir, lista, traer, actualizar, eliminar } = require('../controllers/proyectoControllers')
+const { mostrar, enviar, eliminar, lista, traer, actualizar } = require('../controllers/tipoEpilepsiaControlador')
 
-rutas.get('/agregar/', enseñar)
-rutas.post('/agregar/', dirigir)
+rutas.get('/agregar/:id', mostrar)
+rutas.post('/agregar/:id', enviar)
 rutas.get('/lista/:id', lista)
 rutas.get('/editar/:id', traer)
 rutas.post('/editar/:id', actualizar)

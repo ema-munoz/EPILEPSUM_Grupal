@@ -2,7 +2,7 @@
     <div id="contenido">
         <div id="id">
             {{#each proyecto}}
-            <input type="text" name="numero" id="numero" value="{{idProyect}}">
+            <input type="text" name="numero" id="numero" value="{{idProyecto}}">
             {{/each}}
         </div>
         <div id="Nombre">
@@ -12,7 +12,10 @@
         <div id="objetivos">
             <label>Objetivos</label>
             <input type="text" id="numeros" checked>
-            <button type="button" onclick="objetivos.crear()">-></button>
+            <button type="button" onclick="objetivos.crear()">Crear Objetivos</button>
+        </div>
+        <div id="listaObjetivos">
+
         </div>
         <div id="boton">
             <button type="submit">Guardar</button>

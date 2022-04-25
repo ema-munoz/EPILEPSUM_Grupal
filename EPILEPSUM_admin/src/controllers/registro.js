@@ -16,15 +16,17 @@ registro.registro = passport.authenticate("local.signup", {
 
 })
 
-registro.vistaLogin = async(req, res) => {
+registro.vistaLogin = async (req, res) => {
     const id = req.params.id;
     const datosBD = await sql.query("SELECT * FROM usuarios WHERE idUsuario = ?", [id]);
-    res.render("Usuario/Login", { datosBD });
+    res.render("Usuario/Login", {
+        datosBD
+    });
 }
 
 registro.login = passport.authenticate("local.signin", {
     successRedirect: "/proyecto/agregar/",
-    failureRedirect: "/Verificacion",
+    failureRedirect: "/",
     failureFlash: true
 })
 

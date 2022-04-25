@@ -1,15 +1,19 @@
-<form action="/proyecto/lista/{{user.idUsuario}}" method="get"></form>
-<div id="contenido">
-    {{#each listas}}
-    <div id="nombre">
-       <label >{{nombreProyecto}}</label> 
+<form action="/proyecto/lista/{{user.idUsuario}}" method="get">
+    <div id="contenido">
+        {{#each proyecto}}
+        <div id="nombre">
+            <label>{{nombreProyecto}}</label>
+        </div>
+        
+        {{/each}}
+        {{#each objetivos}}
+        <div id="objetivos">
+            <ul>
+                <li>{{objetivoDetalleProyecto}}</li>
+            </ul>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-    {{#each objetivos}}
-    <div id="objetivos">
-        <ul>
-            <li>{{objetivos}}</li>            
-        </ul>
-    </div>
-    {{/each}}
-</div>
+</form>
+<script src="/js/numero.js"></script>
+<script src="/js/objetivos.js"></script>

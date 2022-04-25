@@ -1,0 +1,43 @@
+<div id="contenido">
+   <div class="row">
+      {{#each lista}}
+      <form action="/efectosSecundarios/lista/{{idEfectosSecundarios}}" method="get"></form>
+      <div id="tarjeta">
+         <div id="nombre">
+            <label>{{nombreEfectosSecundarios}}</label>
+         </div>
+
+         <div id="Descripcion">
+            <label> Descripcion :</label>
+            <p> {{descripcionEfectosSecundarios}} </p>
+
+            <div id="botonEditar">
+               <button>
+                  <a href="/efectosSecundarios/editar/{{idEfectosSecundarios}}">Editar</a>
+               </button>
+            </div>
+
+            <div id="botonEliminar">
+               <button>
+                  <a href="/efectosSecundarios/eliminar/{{idEfectosSecundarios}}">Eliminar</a>
+               </button>
+            </div>
+         </div>
+
+         {{else}}
+         <div id="mensaje">
+            <p><b>No tiene Efectos Secundarios. </b></p>
+            <a href="/efectosSecundarios/agregar/{{user.idUsuario}}">
+               <button type="button">¿Desea registrar?</button>
+            </a>
+         </div>
+         {{/each}}
+      </div>
+   </div>
+</div>
+
+<div id="plus">
+   <a href="/efectosSecundarios/agregar/{{user.idUsuario}}">
+      <button type="button"><img src="/img/usuarios/plus.png"></button>
+   </a>
+</div>

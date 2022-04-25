@@ -60,7 +60,7 @@ passport.use(
                     apellidoUsuario,
                     fechaNacimientoUsuario,
                     celularUsuario
-        } = req.body;
+                } = req.body;
 
                 let newUser = {
                     cedulaUsuario,
