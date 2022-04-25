@@ -2,10 +2,6 @@
     position: fixed;
 }
 
-nav{
-    position: fixed;
-}
-
 footer{
     bottom: -160%;
 }
@@ -18,7 +14,7 @@ footer{
     height: 100%;
     max-width: 80%;
     max-height: 65%;
-    top: 27.5%;
+    top: 30%;
     left: 10%;
 }
 
@@ -44,7 +40,7 @@ footer{
 
 #titulo2{
     max-height: 10%;
-    top: 100%;
+    top: 102.5%;
 }
 
 #contenedor{

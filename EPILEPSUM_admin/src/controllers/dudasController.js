@@ -181,6 +181,10 @@ dudas.editar = async (req, res) => {
     const respuestasId = req.params.id;
     const id = req.user.idUsuario
     const {
+        preguntaFinalImagen,
+        preguntaFinalVideo,
+        respuestaFinalImagen,
+        respuestaFinalVideo,
         pregunta,
         respuestas,
         preguntas,

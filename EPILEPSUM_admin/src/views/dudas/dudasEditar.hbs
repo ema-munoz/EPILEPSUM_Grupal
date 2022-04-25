@@ -98,17 +98,18 @@
             </div>
 
             <div id="objetivosEliminar">
-                
+
                 <div id="Respuesta">
                     <textarea type="text" id="quitar" name="respuestas" checked>{{respuesta}}</textarea>
                 </div>
 
                 <div id="botonEliminar">
-                    <button>
-                        <a href="/dudas/eliminarRespuesta/{{idPreguntas}}">Eliminar</a>
-                    </button>
+                    <a href="/dudas/eliminarRespuesta/{{idPreguntas}}">
+                        <button>Eliminar Respuesta</button>
+                    </a>
                 </div>
             </div>
+            
             <div id="imagenRespuesta">
                 <img src="/img/dudas/Respuestas/{{imagenRespuesta}}" id="imagenSubidaRespuesta">
             </div>
@@ -170,7 +171,9 @@
                 <img src="/img/usuarios/video.png">
             </div>
             {{/each}}
+        </div>
 
+        <div id="OtraPregunta">
             <div id="objetivos">
                 <label>Desea añadir otra respuesta?:</label>
                 <input type="text" id="numeros" name="numeros" placeholder="Ingrese su número de respuestas" checked>
@@ -183,7 +186,7 @@
             </div>
 
             <div id="boton">
-                <button type="button" onclick="objetivo1.crear()">Objetivos</button>
+                <button type="button" onclick="objetivo1.crear()">Crear Respuestas</button>
             </div>
 
             <div id="Guardar">

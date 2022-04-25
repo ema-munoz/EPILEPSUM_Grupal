@@ -5,7 +5,6 @@
 </div>
 
 <form action="/contenido/lista/{{user.idUsuario}}" method="GET"></form>
-
 <div id="contenedor">
     {{#each enlistar}}
     <div id="tarjeta">
@@ -53,24 +52,8 @@
         <div id="botonEliminar">
 
             <a href="/contenido/eliminar/{{idContenido}}">
-                <button>Eliminar
-                </button>
+                <button>Eliminar</button>
             </a>
         </div>
 
-        {{else}}
-        <div id="mensaje">
-            <p><b>Usted no tiene registrado ningún contenido. </b></p>
-            <a href="/contenido/agregar/{{user.idUsuario}}">
-                <button type="button">¿Desea registrar?</button>
-            </a>
-        </div>
-    </div>
-    {{/each}}
-</div>
-
-<div id="plus">
-    <a href="/contenido/agregar/{{user.idUsuario}}">
-        <button type="button"><img src="/img/usuarios/plus.png" /></button>
-    </a>
 </div>
