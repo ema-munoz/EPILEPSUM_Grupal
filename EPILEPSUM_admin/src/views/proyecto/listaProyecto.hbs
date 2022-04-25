@@ -18,17 +18,14 @@
                 <div id="objetivos">
                     <ul>
                         <li>{{objetivoDetalleProyecto}}</li>
+                        <button id="editar">
+                            <a href="/proyecto/editar/{{idProyecto}}">Editar</a>
+                        </button>
+                        <button id="eliminar">
+                            <a href="/proyecto/eliminar/{{idProyecto}}">Eliminar</a>
+                        </button>
+                        
                     </ul>
-                </div>
-                <div id="botonEditar">
-                    <button>
-                        <a href="/proyecto/editarProyecto/{{idDetalleProyecto}}">Editar</a>
-                    </button>
-                </div>
-                <div id="botonEliminar">
-                    <button>
-                        <a href="/proyecto/eliminarProyecto/{{idDetalleProyecto}}">Eliminar</a>
-                    </button>
                 </div>
                 {{/each}}
             </div>
