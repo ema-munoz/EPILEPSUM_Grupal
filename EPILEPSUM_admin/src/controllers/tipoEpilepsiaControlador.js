@@ -13,7 +13,7 @@ tipoEpilepsiaCtl.enviar = async(req, res) => {
     const nuevoEnvio = {
         nombreTipoEpilepsia,
         descripcionTipoEpilepsia,
-        usuarioIdusuario: id  
+        usuarioIdusuario: id
     }
     await baseDatosORM.tipoEpilepsia.create(nuevoEnvio)
     req.flash('success', 'guardado')

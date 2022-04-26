@@ -11,7 +11,6 @@ const http = require('http');
 
 const {database} = require('./key');
 
-
 const app = express();
 require('./lib/passport');
 /// archivos compartidos

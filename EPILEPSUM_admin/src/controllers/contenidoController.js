@@ -45,11 +45,12 @@ contenido.lista = async (req, res) => {
 
 contenido.traerDatos = async (req, res) => {
     const contenidoId = req.params.id;
-    const id = req.user.idUsuario
-    const enlistar = await baseDatosSQL.query("SELECT * FROM listacontenido WHERE idContenido = ?", [contenidoId])
+    const id = req.user.idUsuario 
+    const enlistar = await baseDatosSQL.query("SELECT * FROM listaContenido WHERE idContenido = ?", [contenidoId])
     res.render("contenido/contenidoEditar", {
         enlistar
     })
+    
 }
 
 contenido.editar = async (req, res) => {
