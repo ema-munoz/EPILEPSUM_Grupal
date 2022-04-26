@@ -42,6 +42,8 @@ index.verificacion = async (req, res, done) => {
 
             await sql.query("CREATE VIEW listaContenido as SELECT c.*, dc.* FROM contenidos c join detalleContenidos dc ON  dc.contenidoIdContenido = c.idContenido;")
 
+            await sql.query('CREATE VIEW listaConsejos AS SELECT c.*, d.* FROM consejos c JOIN detallesconsejos d ON d.consejoIdConsejo = c.idConsejo')
+
             console.log("Guardado con éxito.")
         }
     } else {
