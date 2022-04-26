@@ -34,9 +34,23 @@
                 </a>
             </div>
         </div>
+        {{else}}
+        <div id="mensaje">
+            <p><b>Usted no tiene registrado ningún proyecto. </b></p>
+            <a href="/proyecto/agregar/">
+                <button type="button">¿Desea registrar?</button>
+            </a>
+        </div>
         {{/each}}
     </div>
 </div>
 
-<script src="/js/numero.js"></script>
-<script src="/js/objetivos.js"></script>
+
+    <div id="plus">
+        <a href="/proyecto/agregar/">
+            <button type="button"><img src="/img/usuarios/plus.png" /></button>
+        </a>
+    </div>
+
+    <script src="/js/numero.js"></script>
+    <script src="/js/objetivos.js"></script>

@@ -10,7 +10,7 @@
     <div id="tarjeta">
         <div id="titulo">
             <label>
-                Contenido
+                 Contenido
             </label>
         </div>
 
@@ -55,5 +55,20 @@
                 <button>Eliminar</button>
             </a>
         </div>
-{{/each}}
+    </div>
+    {{else}}
+    <div id="mensaje">
+        <p><b>Usted no tiene registrado ningún Contenido. </b></p>
+        <a href="/contenido/agregar/{{user.idUsuario}}">
+            <button type="button">¿Desea registrar?</button>
+        </a>
+    </div>
+    {{/each}}
+</div>
+
+
+<div id="plus">
+    <a href="/contenido/agregar/{{user.idUsuario}}">
+        <button type="button"><img src="/img/usuarios/plus.png" /></button>
+    </a>
 </div>

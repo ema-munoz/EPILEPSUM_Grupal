@@ -7,18 +7,19 @@
 <div id="contenedor">
     <form action="/contenido/agregar/{{user.idUsuario}}" method="POST">
         <div id="titulo">
-            {{#each idMax}}
             <label>
+                {{#each idMax}}
                 Agregar Contenido N:
-                <input type="text" name="contenidos" id="numero" value="{{'MAX(idContenido)'}}">
+                <input type="text" name="contenidos" id="numero" value="{{'MAX(idContenido)'}}" readonly/>
+                {{/each}}
             </label>
-            {{/each}}
         </div>
 
         <div id="Nombres">
             <label>
-                Nombre:<input type="text" name="nombreContenido" id="nombre" required>
+                Nombre:
             </label>
+            <input type="text" name="nombreContenido" id="nombre" required>
         </div>
 
         <div id="descripcion">
