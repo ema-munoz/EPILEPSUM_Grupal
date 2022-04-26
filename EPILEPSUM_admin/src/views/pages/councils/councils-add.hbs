@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="/css/my/form.css" />
+<div id="fondo">
+  <img src="/img/fondos/Fondo.jpg" alt="Logo" />
+</div>
+
+<div id="contenedor">
+  <form action="/add-councils" method="POST">
+    <div id="title">Agregar</div>
+    <div id="sub-title">Consejo</div>
+    <div id="input">
+      <div id="Nombre">
+        <label for="nombreIntxt">
+          <span>Nombre de la experiencia</span>
+        </label>
+        <input
+          id="nombreIntxt"
+          type="text"
+          name="nombreConsejo"
+          placeholder="Nombre de mi consejo..."
+          required
+        />
+      </div>
+
+      <div id="description">
+        <label for="descriptionIntxt">
+          <span>Descripción de la experiencia</span>
+        </label>
+        <input
+          id="descriptionIntxt"
+          type="text"
+          name="descripcionConsejo"
+          placeholder="Descripción de mi consejo..."
+          required
+        />
+      </div>
+
+      <div id="save">
+        <input type="submit" value="Save" />
+      </div>
+    </div>
+  </form>
+</div>

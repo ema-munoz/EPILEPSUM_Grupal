@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="/css/my/experence.css" />
+<center>
+  <div id="head">
+    <h5 id="h5">CONSEJOS
+      <a id="a" href="/add-councils"> Agregar Un Consejo</a>
+    </h5>
+  </div>
+</center>
+{{#each councils}}
+
+  <center>
+    <ul id="cards">
+      <li>
+        <div id="card">
+          {{#if imagenConsejo}}
+            <img src="/{{imagenConsejo}}" id="card__image" />
+          {{else}}
+            <img
+              src="/img/image-councils/not-found/not-found.jpg"
+              id="card__image"
+              alt=""
+            />
+
+          {{/if}}
+          <div id="card__overlay">
+            <div id="card__header">
+              <svg id="card__arc" xmlns="http://www.w3.org/2000/svg">
+                <path></path>
+              </svg>
+              <div id="card__header-text">
+                <h3 id="card__title"> Nombre Consejo: {{nombreConsejo}}</h3>
+                <span id="card__status">Video Consejo:{{videoConsejo}}</span>
+              </div>
+            </div>
+            <p id="card__description">Descripción: {{descripcionConsejo}}</p>
+            <form
+              action="/image-councils/{{id}}"
+              method="POST"
+              encType="multipart/form-data"
+            >
+              <div id="modal_container">
+
+                <div id="drag-area">
+                  <p>Agregar foto:</p>
+                  <input type="file" name="sampleFile" accept="image/*" />
+                  <input type="submit" />
+                </div>
+              </div>
+            </form>
+            <br />
+
+            <a
+              id="card__description"
+              style="background-color: rgb(226, 93, 4);width: 40%;"
+              href="/deleted/{{id}}"
+            >
+              <i class="fa-solid fa-trash-can"></i>
+              Delete
+            </a>
+            <a id="card__description" style="width: 40%;" href="/post/{{id}}">
+              <i class="fa-solid fa-pen-to-square"></i>
+              Edit
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </center>
+
+{{else}}
+  <center>
+    <div id="padd">
+      <div id="card">
+        <p>No tienes consejos agregados.</p>
+        <a href="/add-councils">crea uno!</a>
+      </div>
+    </div>
+  </center>
+{{/each}}
