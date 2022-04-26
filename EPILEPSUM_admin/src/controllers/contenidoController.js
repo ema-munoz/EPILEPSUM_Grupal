@@ -50,7 +50,6 @@ contenido.traerDatos = async (req, res) => {
     res.render("contenido/contenidoEditar", {
         enlistar
     })
-    
 }
 
 contenido.editar = async (req, res) => {
@@ -105,5 +104,6 @@ contenido.eliminar = async (req, res) => {
     })
     res.redirect("/contenido/lista/" + id);
 }
+
 
 module.exports = contenido
