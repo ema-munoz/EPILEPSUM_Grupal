@@ -14,15 +14,11 @@ experiencias.agregar = async (req, res) => {
     const id = req.user.idUsuario
     const {
         nombreExperiencia,
-        imagenExperiencia,
-        videoExperiencia,
         experienciasDetallesExperiencias,
         experiencia
     } = req.body
     const nuevoAgregamiento = {
         nombreExperiencia,
-        imagenExperiencia,
-        videoExperiencia,
         usuarioIdUsuario: id
     }
     const nuevaExperiencia = {
@@ -55,14 +51,10 @@ experiencias.editar = async (req, res) => {
     const id = req.user.idUsuario
     const {
         nombreExperiencia,
-        imagenExperiencia,
-        videoExperiencia,
         experienciasDetallesExperiencias,
     } = req.body
     const actualizacion = {
         nombreExperiencia,
-        imagenExperiencia,
-        videoExperiencia,
     }
     const nuevaExperiencia = {
         experienciasDetallesExperiencias,
