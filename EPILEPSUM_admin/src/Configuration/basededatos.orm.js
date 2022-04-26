@@ -115,6 +115,9 @@ detallesRol.belongsTo(usuario)
 usuario.hasMany(experiencias)
 experiencias.belongsTo(usuario)
 
+usuario.hasMany(consejo)
+consejo.belongsTo(usuario)
+
 usuario.hasMany(preguntas)
 preguntas.belongsTo(usuario)
 

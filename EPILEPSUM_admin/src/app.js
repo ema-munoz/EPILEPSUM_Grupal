@@ -71,6 +71,9 @@ app.use('/efectosSecundarios', require('./routes/efectosSecundariosRutas'))
 app.use('/tipoEpilepsia', require('./routes/tipoEpilepsiaRutas'))
 app.use('/sintomas', require('./routes/sintomasRutas')) 
 
+app.use ("/experiencias", require ("./routes/experiencias.route"));
+app.use ("/consejo", require ("./routes/consejos.route"));
+
 
 
 
