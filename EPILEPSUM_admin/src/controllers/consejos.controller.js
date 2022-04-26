@@ -4,7 +4,7 @@ const baseDatosSQL = require("../Configuration/basededatos.sql");
 const baseDatosORM = require("../Configuration/basededatos.orm");
 
 consejos.mostrar = async (req, res) => {
-    const idMax = await baseDatosSQL.query("SELECT MAX(idExperiencias) FROM experiencias")
+    const idMax = await baseDatosSQL.query("SELECT MAX(idConsejo) FROM consejos")
     res.render("consejos/consejosAgregar", {
         idMax
     });
@@ -21,12 +21,12 @@ consejos.agregar = async (req, res) => {
         nombreConsejo,
         usuarioIdUsuario: id
     }
-    const nuevaExperiencia = {
+    const nuevoConsejo = {
         consejosDetallesConsejo,
         consejoIdConsejo: consejos
     }
     await baseDatosORM.consejo.create(nuevoAgregamiento)
-    await baseDatosORM.detallesConsejos.create(nuevaExperiencia)
+    await baseDatosORM.detallesConsejos.create(nuevoConsejo)
     res.redirect("/consejo/lista/" + id);
 }
 
@@ -56,7 +56,7 @@ consejos.editar = async (req, res) => {
     const actualizacion = {
         nombreConsejo,
     }
-    const nuevaExperiencia = {
+    const nuevoConsejo = {
         consejosDetallesConsejo,
     }
     await baseDatosORM.consejo.findOne({
@@ -72,11 +72,11 @@ consejos.editar = async (req, res) => {
                 consejosDetallesConsejo: consejosId
             }
         })
-        .then(detallesconsejos => {
-            detallesconsejos.update(nuevaExperiencia)
+        .then(detallesConsejos => {
+            detallesConsejos.update(nuevoConsejo)
         })
     req.flash("success", "Datos Actulizados.")
-    res.redirect("/consejos/lista/" + id);
+    res.redirect("/consejo/lista/" + id);
 }
 
 consejos.eliminar = async (req, res) => {
@@ -92,7 +92,7 @@ consejos.eliminar = async (req, res) => {
             consejoIdConsejo: consejosId
         }
     })
-    res.redirect("/consejos/lista/" + id);
+    res.redirect("/consejo/lista/" + id);
 }
 
 module.exports = consejos

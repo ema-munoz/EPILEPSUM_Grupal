@@ -9,6 +9,7 @@ class obtenerNumero {
             this.numero.value = parseInt(this.numero.value) + 1
         }
     }
+    
 }
 
 let numeros = new obtenerNumero()
