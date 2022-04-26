@@ -1,31 +1,40 @@
-<form action="/consejo/agregar/{{user.idUsuario}}" method="POST">
-<div id="contenedor">
-    <div id="titulo">
-        {{#each idMax}}
-        <label>Agregar Consjejo N: <input type="text" name="consejos" id="numero" value="{{'MAX(idExperiencias)'}}"></label>
-        {{/each}}
-    </div>
-
-    <div>
-        <label>
-            Nombre:
-        </label>
-        <input type="text" name="nombreConsejo" id="nombre" required>
-    </div>
-    
-    <div>
-        <label>
-            Descripción:
-        </label>
-        <input type="text" name="consejosDetallesConsejo" id="descripcion" required>
-    </div>
-    
-    <div>
-        <button type="submit" id="btn-agregar">
-            Agregar
-        </button>
-    </div>
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/CSS/consejos/ConsejoAgregar.css" />
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
 </div>
+
+
+<form action="/consejo/agregar/{{user.idUsuario}}" method="POST">
+    <div id="contenedor">
+        <div id="titulo">
+            {{#each idMax}}
+            <label>Agregar Consjejo N: <input type="text" name="consejos" id="numero"
+                    value="{{'MAX(idExperiencias)'}}"></label>
+            {{/each}}
+        </div>
+
+        <div id="Nombre">
+            <label>
+                Nombre:
+            </label>
+            <input type="text" name="nombreConsejo" id="nombre" required>
+        </div>
+
+        <div id="Descripcion">
+            <label>
+                Descripción:
+            </label>
+            <input type="text" name="consejosDetallesConsejo" id="descripcion" required>
+        </div>
+
+        <div id="contenido">
+            <button type="submit" id="btn-agregar">
+                Agregar
+            </button>
+        </div>
+    </div>
 </form>
+
 
 <script src="/js/numero.js"></script>

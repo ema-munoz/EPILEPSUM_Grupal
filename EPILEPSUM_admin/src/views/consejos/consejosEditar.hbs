@@ -1,18 +1,31 @@
+<!-- Required meta tags -->
+<link rel="stylesheet" href="/CSS/consejos/ConsejoEditar.css" />
+
+<div id="fondo">
+    <img src="/img/fondos/sistemaNervioso.png">
+</div>
+
+
 {{#each enlistar}}
-<form action="/experiencias/editar/{{idExperiencias}}" method="POST">
-    <div>
+<form action="/consejo/editar/{{idExperiencias}}" method="POST">
+    <div id="contenedor">
+        <div id="titulo">
+                <p>
+                    <b>Consejos:</b>
+                </p>
+       </div>
         <label>
             Nombre:
         </label>
         <input type="text" name="nombreConsejo" id="nombre" value="{{nombreExperiencia}}">
     </div>
-    <div>
+    <div id="Descripcion">
         <label>
             Descripción:
         </label>
         <input type="text" name="consejosDetallesConsejo" id="descripcion" value="{{experienciasDetallesExperiencias}}">
     </div>
-    <div>
+    <div id="contenido">
         <button type="submit" id="btn-agregar">
             Guardar Cambios
         </button>
